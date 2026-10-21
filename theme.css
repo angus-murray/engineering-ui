@@ -1,0 +1,95 @@
+/*
+ * engineering-ui theme: the house style shared by all engineering apps (see STYLE.md).
+ *
+ * In the app's main CSS file:
+ *   @import "tailwindcss";
+ *   @import "engineering-ui/theme.css";
+ *
+ * The @source line lets Tailwind find the utility classes used inside the package's components.
+ */
+@source "./dist";
+
+/* Thin scrollbar for panels that scroll on their own. The gutter is reserved so contents do not shift. */
+.scroll-thin {
+  scrollbar-gutter: stable;
+}
+.scroll-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-thin::-webkit-scrollbar-track { background: transparent; }
+.scroll-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+.scroll-thin::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+@supports (-moz-appearance: none) {
+  .scroll-thin { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+}
+
+@layer base {
+  svg, svg * {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .card-title { @apply text-[13px] font-bold text-slate-800; }
+
+  /* Inputs in a fixed-width column that scrolls on its own (sticky below the header); the viewer and the results
+     use the rest of the width and the page scrolls through the results. */
+  .tab-grid { @apply grid grid-cols-1 lg:grid-cols-[340px_minmax(0,1fr)] gap-3 items-start; }
+  .input-column { @apply space-y-3 lg:sticky lg:top-[74px] lg:max-h-[calc(100vh-86px)] lg:overflow-y-auto lg:-mr-1.5; }
+  .results-column { @apply flex flex-col gap-3 min-w-0; }
+
+  .panel { @apply bg-white p-3 rounded-lg border border-slate-200 shadow-2xs space-y-2.5; }
+  .panel-title { @apply text-[13px] font-bold text-slate-800 border-b border-slate-100 pb-1.5; }
+
+  .section { @apply pt-2.5 mt-0.5 border-t border-slate-100 space-y-2.5; }
+  .nested { @apply pl-5 pt-1.5 space-y-2.5; }
+
+  .label { @apply block text-[11px] font-medium text-slate-600 mb-1; }
+  .sublabel { @apply block text-[11px] font-medium text-slate-600 mb-1; }
+  .hint { @apply text-[11px] leading-snug text-slate-500 mt-1; }
+
+  .control {
+    @apply block w-full h-8 px-2.5 text-xs text-slate-900 bg-white border border-slate-300 rounded-lg
+      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+      disabled:bg-slate-100 disabled:text-slate-500 select-text;
+  }
+  .control-sm {
+    @apply h-7 px-2 text-[11px] text-slate-700 bg-white border border-slate-300 rounded-md
+      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  }
+  /* Up / down arrows inside a number box (press and hold to repeat) */
+  .spin { @apply absolute right-1 top-1 bottom-1 w-4 flex flex-col; }
+  .spin-btn {
+    @apply flex-1 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:bg-slate-100
+      active:bg-blue-50 rounded-sm transition-colors touch-manipulation;
+  }
+
+  .check { @apply flex items-center gap-2 text-[11px] font-medium text-slate-600 cursor-pointer; }
+  .checkbox { @apply h-3.5 w-3.5 rounded border-slate-300 accent-blue-600; }
+  .range { @apply w-full h-1.5 rounded-lg appearance-none cursor-pointer bg-slate-200 accent-blue-600 disabled:accent-slate-400; }
+
+  .link-btn { @apply text-[11px] font-medium text-blue-600 hover:text-blue-800; }
+  .btn { @apply h-8 px-3 inline-flex items-center justify-center gap-1.5 text-xs font-medium rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 disabled:opacity-50; }
+  .btn-primary { @apply h-8 px-3 inline-flex items-center justify-center gap-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 shadow-sm; }
+
+  /* Segmented control (two or three options) */
+  .segmented { @apply grid p-0.5 bg-slate-100 border border-slate-300 rounded-lg; }
+  .segment { @apply h-6 rounded-md text-xs font-medium transition-colors text-slate-600 hover:text-slate-900; }
+  .segment-active { @apply bg-blue-600 text-white shadow-sm hover:text-white; }
+
+  /* Results tables: equal column widths (fixed layout), every cell centred horizontally and vertically */
+  .rtable { @apply w-full table-fixed border-collapse tabular-nums; }
+  .rtable th { @apply py-1 px-2 text-[11px] font-semibold text-slate-700 text-center align-middle; }
+  .rtable td { @apply py-1 px-2 text-xs text-slate-800 text-center align-middle; }
+  .rtable thead tr { @apply bg-slate-50 border-b border-slate-200; }
+  .rtable tbody tr { @apply border-b border-slate-100 last:border-0 hover:bg-slate-50; }
+
+  /* Native selects share one slate chevron. */
+  select.control, select.control-sm {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+  select.control { background-position: right 0.45rem center; background-size: 0.9rem 0.9rem; padding-right: 1.6rem; }
+  select.control-sm { background-position: right 0.35rem center; background-size: 0.8rem 0.8rem; padding-right: 1.4rem; }
+}
