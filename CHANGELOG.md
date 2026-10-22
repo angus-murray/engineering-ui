@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0
+- `AppHeader`: the About button moves into a menu (☰) at the top right of the header, with About first and Theme
+  (Light / Dark) second. PDF Report stays as a button to the left of the menu. Props are unchanged.
+- Dark theme: `data-theme="dark"` on `<html>`, chosen from the menu and saved in `localStorage`. Light remains the
+  default. `theme.css` re-maps the slate, white and status colours under the dark theme and adds a `dark:` variant.
+- `useTheme`, `setTheme`, `initTheme` and the `Theme` type for apps that draw in their own colours (charts,
+  canvases, 3D viewers).
+
 ## 1.3.0
 - `NumberField`: `onClear` and `placeholder` for fields that may be left empty (e.g. "Auto"); `value` may be
   undefined. Negative values are shown with a minus sign (−), and −, – or - are accepted when typing.

@@ -57,6 +57,12 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 | Warning (does not stop the analysis) | `amber-50` / `amber-200` / `amber-900` |
 | Fail / error | `rose-100` / `rose-800` (banners `rose-50` / `rose-200`) |
 
+**Dark theme.** Light is the default; the header menu switches to Dark, which sets `data-theme="dark"` on
+`<html>`. `theme.css` reverses the slate scale (slate-100 page becomes the darkest, `bg-white` panels dark slate,
+slate-800 text light) and darkens the status colours, so apps use the same classes as above and need no dark
+variants of their own. Colours that are not Tailwind classes (hex colours in SVG, canvas or 3D scenes) take a
+`dark:` utility or read `useTheme()` and redraw. Blue keeps its light-theme values.
+
 ## 3. Typography (fixed)
 
 | Element | Style | Class |
@@ -83,7 +89,7 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 
 ```
 ┌──────────────────────── header (sticky, white, bottom border) ────────────────────────┐
-│ [logo] AppName  Created by Angus Murray                       ⓘ About   [PDF Report] │
+│ [logo] AppName  Created by Angus Murray                                [PDF Report]  ☰ │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ┌─ inputs 340 px ─┐ ┌─ results (rest of width) ─────────────────────────────────────────┐
 │ panel           │ │ viewer / chart (fits the screen with the summary panel below it)  │
@@ -115,9 +121,10 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 - Left: favicon logo (32–36 px), app name, "Created by Angus Murray" baseline aligned.
 - Apps with several tabs show them as a row under the name (`AppHeader` `tabs`): icon plus label, active tab blue
   with a blue underline. The header is then compact (name row `py-2`, tab row directly below), 90 px in total.
-- Right: **About** as a text button with an info icon (12/14 px medium slate-600, blue on hover), then
-  **PDF Report** as a small solid blue button (`h-8 text-xs font-semibold bg-blue-600 rounded px-3`) with a file
-  icon. Apps without a report omit that button only.
+- Right: **PDF Report** as a small solid blue button (`h-8 text-xs font-semibold bg-blue-600 rounded px-3`) with a
+  file icon, then the **menu** button (lucide `Menu`, 20 px, slate-600, blue on hover). The menu opens below it:
+  **About** first (info icon), then **Theme** with a Light / Dark segmented control. Apps without a report omit
+  that button only.
 
 ## 6. Panels (fixed)
 

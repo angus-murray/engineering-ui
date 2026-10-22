@@ -9,6 +9,53 @@
  */
 @source "./dist";
 
+/*
+ * Dark theme: data-theme="dark" on <html> (set from the header menu; see useTheme). The slate scale is reversed and
+ * the status colours darkened, so the same classes serve both themes: bg-white panels on a bg-slate-100 page become
+ * dark panels on a darker page, and slate-800 text becomes light. Blue is unchanged. `dark:` utilities are available
+ * for anything that needs its own dark colour (a hex colour in a chart, for example).
+ */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-white: oklch(20.8% 0.042 265.755);
+  --color-slate-50: oklch(27.9% 0.041 260.031);
+  --color-slate-100: oklch(12.9% 0.042 264.695);
+  --color-slate-200: oklch(37.2% 0.044 257.287);
+  --color-slate-300: oklch(44.6% 0.043 257.281);
+  --color-slate-400: oklch(55.4% 0.046 257.417);
+  --color-slate-500: oklch(70.4% 0.04 256.788);
+  --color-slate-600: oklch(86.9% 0.022 252.894);
+  --color-slate-700: oklch(92.9% 0.013 255.508);
+  --color-slate-800: oklch(96.8% 0.007 247.896);
+  --color-slate-900: oklch(98.4% 0.003 247.858);
+  --color-blue-50: oklch(28.2% 0.091 267.935);
+  --color-blue-800: oklch(80.9% 0.105 251.813);
+  --color-emerald-50: color-mix(in oklab, oklch(26.2% 0.051 172.552) 50%, oklch(20.8% 0.042 265.755));
+  --color-emerald-100: color-mix(in oklab, oklch(26.2% 0.051 172.552) 80%, oklch(20.8% 0.042 265.755));
+  --color-emerald-200: color-mix(in oklab, oklch(37.8% 0.077 168.94) 60%, oklch(20.8% 0.042 265.755));
+  --color-emerald-700: oklch(76.5% 0.177 163.223);
+  --color-emerald-800: oklch(84.5% 0.143 164.978);
+  --color-emerald-900: oklch(90.5% 0.093 164.15);
+  --color-amber-50: color-mix(in oklab, oklch(27.9% 0.077 45.635) 50%, oklch(20.8% 0.042 265.755));
+  --color-amber-100: color-mix(in oklab, oklch(27.9% 0.077 45.635) 80%, oklch(20.8% 0.042 265.755));
+  --color-amber-200: color-mix(in oklab, oklch(41.4% 0.112 45.904) 60%, oklch(20.8% 0.042 265.755));
+  --color-amber-700: oklch(82.8% 0.189 84.429);
+  --color-amber-800: oklch(87.9% 0.169 91.605);
+  --color-amber-900: oklch(92.4% 0.12 95.746);
+  --color-rose-50: color-mix(in oklab, oklch(27.1% 0.105 12.094) 50%, oklch(20.8% 0.042 265.755));
+  --color-rose-100: color-mix(in oklab, oklch(27.1% 0.105 12.094) 80%, oklch(20.8% 0.042 265.755));
+  --color-rose-200: color-mix(in oklab, oklch(41% 0.159 10.272) 60%, oklch(20.8% 0.042 265.755));
+  --color-rose-700: oklch(71.2% 0.194 13.428);
+  --color-rose-800: oklch(81% 0.117 11.638);
+  --color-rose-900: oklch(89.2% 0.058 10.001);
+}
+/* White text on coloured buttons stays white. */
+[data-theme="dark"] :is(.text-white, .btn-primary, .segment-active) {
+  --color-white: #fff;
+}
+
 /* Thin scrollbar for panels that scroll on their own. The gutter is reserved so contents do not shift. */
 .scroll-thin {
   scrollbar-gutter: stable;
@@ -19,6 +66,11 @@
 .scroll-thin::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 @supports (-moz-appearance: none) {
   .scroll-thin { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+}
+[data-theme="dark"] .scroll-thin::-webkit-scrollbar-thumb { background: #475569; }
+[data-theme="dark"] .scroll-thin::-webkit-scrollbar-thumb:hover { background: #64748b; }
+@supports (-moz-appearance: none) {
+  [data-theme="dark"] .scroll-thin { scrollbar-color: #475569 transparent; }
 }
 
 @layer base {
