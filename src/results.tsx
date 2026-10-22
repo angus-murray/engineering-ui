@@ -29,7 +29,7 @@ export const Cols: React.FC<{ w: number[] }> = ({ w }) => (
 );
 
 const CHIP = {
-  neutral: 'bg-slate-100 text-slate-600',
+  neutral: 'bg-slate-100 dark:bg-slate-50 text-slate-600',
   pass: 'bg-emerald-100 text-emerald-800 border border-emerald-200',
   fail: 'bg-rose-100 text-rose-800 border border-rose-200',
   warn: 'bg-amber-100 text-amber-800 border border-amber-200'
