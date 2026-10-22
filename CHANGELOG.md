@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.5.0
+- Dark theme for drawings: SVG shapes coloured with the Tailwind slate greys or white as hex attributes switch to
+  the dark theme's equivalents automatically.
+- `darkTint(colour)`: a muted dark tint of a colour, keeping its hue, for pale data fills (soil layers, zones) in
+  the dark theme. `themed(theme, light, dark)` to pick a value for the current theme.
+- Dark values for every Tailwind colour family (red, orange, yellow, lime, green, teal, cyan, sky, indigo, violet,
+  purple, fuchsia, pink), not only blue and the status colours.
+- STYLE.md: "Graphics in the dark theme" rules, and a dark-theme check in the new-app checklist.
+
 ## 1.4.0
 - `AppHeader`: the About button moves into a menu (☰) at the top right of the header, with About first and Theme
   (Light / Dark) second. PDF Report stays as a button to the left of the menu. Props are unchanged.

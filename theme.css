@@ -65,6 +65,86 @@
   --color-rose-700: oklch(76% 0.16 12);
   --color-rose-800: oklch(81% 0.117 11.638);
   --color-rose-900: oklch(89.2% 0.058 10.001);
+
+  /* Other colour families (badges, toolbar toggles): the same treatment as the status colours above. */
+  --color-red-50: color-mix(in oklab, oklch(63.7% 0.237 25.331) 10%, var(--dk-surface));
+  --color-red-100: color-mix(in oklab, oklch(63.7% 0.237 25.331) 18%, var(--dk-surface));
+  --color-red-200: color-mix(in oklab, oklch(63.7% 0.237 25.331) 35%, var(--dk-surface));
+  --color-red-700: oklch(80% 0.17 25.331);
+  --color-red-800: oklch(85% 0.13 25.331);
+  --color-red-900: oklch(90.5% 0.08 25.331);
+  --color-orange-50: color-mix(in oklab, oklch(70.5% 0.213 47.604) 10%, var(--dk-surface));
+  --color-orange-100: color-mix(in oklab, oklch(70.5% 0.213 47.604) 18%, var(--dk-surface));
+  --color-orange-200: color-mix(in oklab, oklch(70.5% 0.213 47.604) 35%, var(--dk-surface));
+  --color-orange-700: oklch(80% 0.17 47.604);
+  --color-orange-800: oklch(85% 0.13 47.604);
+  --color-orange-900: oklch(90.5% 0.08 47.604);
+  --color-yellow-50: color-mix(in oklab, oklch(79.5% 0.184 86.047) 10%, var(--dk-surface));
+  --color-yellow-100: color-mix(in oklab, oklch(79.5% 0.184 86.047) 18%, var(--dk-surface));
+  --color-yellow-200: color-mix(in oklab, oklch(79.5% 0.184 86.047) 35%, var(--dk-surface));
+  --color-yellow-700: oklch(80% 0.17 86.047);
+  --color-yellow-800: oklch(85% 0.13 86.047);
+  --color-yellow-900: oklch(90.5% 0.08 86.047);
+  --color-lime-50: color-mix(in oklab, oklch(76.8% 0.233 130.85) 10%, var(--dk-surface));
+  --color-lime-100: color-mix(in oklab, oklch(76.8% 0.233 130.85) 18%, var(--dk-surface));
+  --color-lime-200: color-mix(in oklab, oklch(76.8% 0.233 130.85) 35%, var(--dk-surface));
+  --color-lime-700: oklch(80% 0.17 130.85);
+  --color-lime-800: oklch(85% 0.13 130.85);
+  --color-lime-900: oklch(90.5% 0.08 130.85);
+  --color-green-50: color-mix(in oklab, oklch(72.3% 0.219 149.579) 10%, var(--dk-surface));
+  --color-green-100: color-mix(in oklab, oklch(72.3% 0.219 149.579) 18%, var(--dk-surface));
+  --color-green-200: color-mix(in oklab, oklch(72.3% 0.219 149.579) 35%, var(--dk-surface));
+  --color-green-700: oklch(80% 0.17 149.579);
+  --color-green-800: oklch(85% 0.13 149.579);
+  --color-green-900: oklch(90.5% 0.08 149.579);
+  --color-teal-50: color-mix(in oklab, oklch(70.4% 0.14 182.503) 10%, var(--dk-surface));
+  --color-teal-100: color-mix(in oklab, oklch(70.4% 0.14 182.503) 18%, var(--dk-surface));
+  --color-teal-200: color-mix(in oklab, oklch(70.4% 0.14 182.503) 35%, var(--dk-surface));
+  --color-teal-700: oklch(80% 0.14 182.503);
+  --color-teal-800: oklch(85% 0.13 182.503);
+  --color-teal-900: oklch(90.5% 0.08 182.503);
+  --color-cyan-50: color-mix(in oklab, oklch(71.5% 0.143 215.221) 10%, var(--dk-surface));
+  --color-cyan-100: color-mix(in oklab, oklch(71.5% 0.143 215.221) 18%, var(--dk-surface));
+  --color-cyan-200: color-mix(in oklab, oklch(71.5% 0.143 215.221) 35%, var(--dk-surface));
+  --color-cyan-700: oklch(80% 0.143 215.221);
+  --color-cyan-800: oklch(85% 0.13 215.221);
+  --color-cyan-900: oklch(90.5% 0.08 215.221);
+  --color-sky-50: color-mix(in oklab, oklch(68.5% 0.169 237.323) 10%, var(--dk-surface));
+  --color-sky-100: color-mix(in oklab, oklch(68.5% 0.169 237.323) 18%, var(--dk-surface));
+  --color-sky-200: color-mix(in oklab, oklch(68.5% 0.169 237.323) 35%, var(--dk-surface));
+  --color-sky-700: oklch(80% 0.169 237.323);
+  --color-sky-800: oklch(85% 0.13 237.323);
+  --color-sky-900: oklch(90.5% 0.08 237.323);
+  --color-indigo-50: color-mix(in oklab, oklch(58.5% 0.233 277.117) 10%, var(--dk-surface));
+  --color-indigo-100: color-mix(in oklab, oklch(58.5% 0.233 277.117) 18%, var(--dk-surface));
+  --color-indigo-200: color-mix(in oklab, oklch(58.5% 0.233 277.117) 35%, var(--dk-surface));
+  --color-indigo-700: oklch(80% 0.17 277.117);
+  --color-indigo-800: oklch(85% 0.13 277.117);
+  --color-indigo-900: oklch(90.5% 0.08 277.117);
+  --color-violet-50: color-mix(in oklab, oklch(60.6% 0.25 292.717) 10%, var(--dk-surface));
+  --color-violet-100: color-mix(in oklab, oklch(60.6% 0.25 292.717) 18%, var(--dk-surface));
+  --color-violet-200: color-mix(in oklab, oklch(60.6% 0.25 292.717) 35%, var(--dk-surface));
+  --color-violet-700: oklch(80% 0.17 292.717);
+  --color-violet-800: oklch(85% 0.13 292.717);
+  --color-violet-900: oklch(90.5% 0.08 292.717);
+  --color-purple-50: color-mix(in oklab, oklch(62.7% 0.265 303.9) 10%, var(--dk-surface));
+  --color-purple-100: color-mix(in oklab, oklch(62.7% 0.265 303.9) 18%, var(--dk-surface));
+  --color-purple-200: color-mix(in oklab, oklch(62.7% 0.265 303.9) 35%, var(--dk-surface));
+  --color-purple-700: oklch(80% 0.17 303.9);
+  --color-purple-800: oklch(85% 0.13 303.9);
+  --color-purple-900: oklch(90.5% 0.08 303.9);
+  --color-fuchsia-50: color-mix(in oklab, oklch(66.7% 0.295 322.15) 10%, var(--dk-surface));
+  --color-fuchsia-100: color-mix(in oklab, oklch(66.7% 0.295 322.15) 18%, var(--dk-surface));
+  --color-fuchsia-200: color-mix(in oklab, oklch(66.7% 0.295 322.15) 35%, var(--dk-surface));
+  --color-fuchsia-700: oklch(80% 0.17 322.15);
+  --color-fuchsia-800: oklch(85% 0.13 322.15);
+  --color-fuchsia-900: oklch(90.5% 0.08 322.15);
+  --color-pink-50: color-mix(in oklab, oklch(65.6% 0.241 354.308) 10%, var(--dk-surface));
+  --color-pink-100: color-mix(in oklab, oklch(65.6% 0.241 354.308) 18%, var(--dk-surface));
+  --color-pink-200: color-mix(in oklab, oklch(65.6% 0.241 354.308) 35%, var(--dk-surface));
+  --color-pink-700: oklch(80% 0.17 354.308);
+  --color-pink-800: oklch(85% 0.13 354.308);
+  --color-pink-900: oklch(90.5% 0.08 354.308);
 }
 /* Text on coloured fills (text-white) is dark ink in the dark theme. */
 [data-theme="dark"] :is(.text-white, .btn-primary, .segment-active) {
@@ -74,6 +154,35 @@
 [data-theme="dark"] :is(.control, .control-sm):not(:disabled, [readonly]) {
   background-color: oklch(18.5% 0.012 260);
 }
+
+/*
+ * Dark theme for drawings: SVG shapes coloured with the slate greys or white as hex attribute values
+ * (fill="#64748b", stroke="#e2e8f0", fill="#ffffff") take the dark theme's equivalents automatically, so axes,
+ * grids, labels and backgrounds of hand-drawn charts follow the theme. Data colours (series, pale bands) do not:
+ * use darkTint() / useTheme() for those (see STYLE.md).
+ */
+[data-theme="dark"] svg [fill="#ffffff" i], [data-theme="dark"] svg [fill="#fff" i], [data-theme="dark"] svg [fill="white" i] { fill: var(--color-white); }
+[data-theme="dark"] svg [fill="#f8fafc" i] { fill: var(--color-slate-50); }
+[data-theme="dark"] svg [fill="#f1f5f9" i] { fill: var(--color-slate-100); }
+[data-theme="dark"] svg [fill="#e2e8f0" i] { fill: var(--color-slate-200); }
+[data-theme="dark"] svg [fill="#cbd5e1" i] { fill: var(--color-slate-300); }
+[data-theme="dark"] svg [fill="#94a3b8" i] { fill: var(--color-slate-400); }
+[data-theme="dark"] svg [fill="#64748b" i] { fill: var(--color-slate-500); }
+[data-theme="dark"] svg [fill="#475569" i] { fill: var(--color-slate-600); }
+[data-theme="dark"] svg [fill="#334155" i] { fill: var(--color-slate-700); }
+[data-theme="dark"] svg [fill="#1e293b" i] { fill: var(--color-slate-800); }
+[data-theme="dark"] svg [fill="#0f172a" i] { fill: var(--color-slate-900); }
+[data-theme="dark"] svg [stroke="#ffffff" i], [data-theme="dark"] svg [stroke="#fff" i], [data-theme="dark"] svg [stroke="white" i] { stroke: var(--color-white); }
+[data-theme="dark"] svg [stroke="#f8fafc" i] { stroke: var(--color-slate-50); }
+[data-theme="dark"] svg [stroke="#f1f5f9" i] { stroke: var(--color-slate-100); }
+[data-theme="dark"] svg [stroke="#e2e8f0" i] { stroke: var(--color-slate-200); }
+[data-theme="dark"] svg [stroke="#cbd5e1" i] { stroke: var(--color-slate-300); }
+[data-theme="dark"] svg [stroke="#94a3b8" i] { stroke: var(--color-slate-400); }
+[data-theme="dark"] svg [stroke="#64748b" i] { stroke: var(--color-slate-500); }
+[data-theme="dark"] svg [stroke="#475569" i] { stroke: var(--color-slate-600); }
+[data-theme="dark"] svg [stroke="#334155" i] { stroke: var(--color-slate-700); }
+[data-theme="dark"] svg [stroke="#1e293b" i] { stroke: var(--color-slate-800); }
+[data-theme="dark"] svg [stroke="#0f172a" i] { stroke: var(--color-slate-900); }
 
 /* Header height, for the sticky input column: 61 px, or 90 px with tabs. */
 :root { --header-h: 61px; }

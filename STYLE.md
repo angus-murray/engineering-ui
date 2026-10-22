@@ -70,8 +70,9 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 | Accent (`blue-600`) | a lighter, softer blue; dark text on blue fills (primary buttons, active segment) |
 | Pass / 100 % / fail | the same emerald / amber / rose hues: fills are a tint over the panel, text a light shade |
 
-Colours that are not Tailwind classes (hex colours in SVG, canvas or 3D scenes) take a `dark:` utility or read
-`useTheme()` and redraw.
+Colours that are not Tailwind classes (hex colours in SVG, canvas or 3D scenes) need care; see **Graphics in the
+dark theme** in §9. All Tailwind colour families have dark values (tints over the panel for 50–200, light shades for
+700–900), so toolbar toggles and badges in any colour follow the theme.
 
 ## 3. Typography (fixed)
 
@@ -202,6 +203,25 @@ All from the package; do not hand-roll alternatives.
   outline) while running → emerald "Solved" when up to date; grey and disabled with a tooltip when blocked.
 - Colour legends: white card, 11 px text, tabular figures.
 
+### Graphics in the dark theme (fixed)
+
+Every drawing must read well in both themes. The light theme is the reference; dark values are chosen to match it.
+
+- **Neutrals are automatic in SVG.** Axes, grids, tick labels and backgrounds drawn with the slate greys or white as
+  hex attributes (`stroke="#e2e8f0"`, `fill="#64748b"`, `fill="#ffffff"`) switch automatically (`theme.css`). Use
+  those exact Tailwind slate values for neutrals; any other grey needs its own dark value.
+- **Shapes that should not stand out from the panel** (support symbols, the backing behind a label on a dimension
+  line) use the panel colour: `style={{ fill: 'var(--color-white)' }}`. Never a white box or white fill in the dark
+  theme.
+- **Pale data fills** (soil layers, zones, highlighted bands) use `darkTint(colour)` in the dark theme: a muted dark
+  tint of the same hue, never a bright pastel block.
+- **Structural members and series colours** get a dark-theme palette chosen by the app (`useTheme()` and
+  `themed(theme, light, dark)`): muted fills for members (e.g. a beam's light orange becomes a dark brown with an
+  orange outline), lighter strokes for series that would be too dark on the panel (dark grey, indigo).
+- **Canvas and 3D scenes** take their background from the theme (`useTheme()`): the dark theme's slate-50,
+  `#1e2228`, where the light theme uses slate-50 `#f8fafc`.
+- Check every tab in both themes, in the browser, before release.
+
 ## 10. About pop-up (fixed)
 
 - Opens from the header as a modal (`max-w-5xl`, slate-100 backdrop panel, × and Escape and outside click close).
@@ -249,5 +269,6 @@ it is, the script is not served and nothing is recorded.
 - [ ] Graphic plus summary visible without scrolling at 1920 × 1080.
 - [ ] About modal states every significant assumption.
 - [ ] PDF report per §11 (if the app reports).
+- [ ] Every tab checked in the Dark theme too (§9, Graphics in the dark theme), and the saved-theme script in `index.html`.
 - [ ] Vercel Web Analytics script in `index.html` (§13), and Web Analytics enabled in the Vercel dashboard.
 - [ ] Deviations recorded in the app's `AGENTS.md`.
