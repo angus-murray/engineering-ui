@@ -23,6 +23,13 @@ Main CSS file (e.g. `src/index.css`):
 @import "engineering-ui/theme.css";
 ```
 
+To apply a saved Dark theme before the page first paints, add this to `index.html` just before `</head>`
+(without it the header applies the theme when it mounts):
+
+```html
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')==='dark'?'dark':'light'}catch{}</script>
+```
+
 Components:
 
 ```tsx

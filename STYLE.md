@@ -57,6 +57,22 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 | Warning (does not stop the analysis) | `amber-50` / `amber-200` / `amber-900` |
 | Fail / error | `rose-100` / `rose-800` (banners `rose-50` / `rose-200`) |
 
+**Dark theme.** Light is the default; the header menu switches to Dark, which sets `data-theme="dark"` on
+`<html>`. Apps use the same classes as above; `theme.css` gives them dark values:
+
+| Use | Dark theme |
+| --- | --- |
+| Page (`bg-slate-100`) | darkest surface, a cool near-neutral grey |
+| Panels, header, pop-ups (`bg-white`) | one step lighter; input boxes slightly below the panel |
+| Table headers, hover, graphics background (`bg-slate-50`) | one step lighter again |
+| Borders (`slate-200`, `slate-300`) | subtle light lines |
+| Text (`slate-500` to `slate-900`) | light grey, muted to strongest |
+| Accent (`blue-600`) | a lighter, softer blue; dark text on blue fills (primary buttons, active segment) |
+| Pass / 100 % / fail | the same emerald / amber / rose hues: fills are a tint over the panel, text a light shade |
+
+Colours that are not Tailwind classes (hex colours in SVG, canvas or 3D scenes) take a `dark:` utility or read
+`useTheme()` and redraw.
+
 ## 3. Typography (fixed)
 
 | Element | Style | Class |
@@ -83,7 +99,7 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 
 ```
 ┌──────────────────────── header (sticky, white, bottom border) ────────────────────────┐
-│ [logo] AppName  Created by Angus Murray                       ⓘ About   [PDF Report] │
+│ [logo] AppName  Created by Angus Murray                                [PDF Report]  ☰ │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ┌─ inputs 340 px ─┐ ┌─ results (rest of width) ─────────────────────────────────────────┐
 │ panel           │ │ viewer / chart (fits the screen with the summary panel below it)  │
@@ -94,8 +110,10 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 ```
 
 - Content width `max-w-7xl mx-auto`, page padding `p-3`, gap between columns and panels `gap-3` / `space-y-3`.
+  **Every gap is 12 px**: header to panels, between the two columns, between panels and to the window edge.
 - `.tab-grid`: one column on mobile; `lg:` 340 px input column plus the rest.
-- `.input-column`: sticky below the header, scrolls on its own with `.scroll-thin`.
+- `.input-column`: sticky 12 px below the header (61 px, or 90 px with tabs), scrolls on its own without a visible
+  scrollbar so the gap beside it stays 12 px.
 - The main graphic (3D viewer, elevation, chart) sits at the top of the results column. On a 1080p screen in a
   browser (a viewport of about 1920 × 950) the graphic and the top summary panel must both be visible without
   scrolling, with the app's default inputs. Baseplate2D uses
@@ -115,9 +133,10 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 - Left: favicon logo (32–36 px), app name, "Created by Angus Murray" baseline aligned.
 - Apps with several tabs show them as a row under the name (`AppHeader` `tabs`): icon plus label, active tab blue
   with a blue underline. The header is then compact (name row `py-2`, tab row directly below), 90 px in total.
-- Right: **About** as a text button with an info icon (12/14 px medium slate-600, blue on hover), then
-  **PDF Report** as a small solid blue button (`h-8 text-xs font-semibold bg-blue-600 rounded px-3`) with a file
-  icon. Apps without a report omit that button only.
+- Right: **PDF Report** as a small solid blue button (`h-8 text-xs font-semibold bg-blue-600 rounded px-3`) with a
+  file icon, then the **menu** button (lucide `Menu`, 20 px, slate-600, blue on hover). The menu opens below it:
+  **About** first (info icon), then **Theme** with a Light / Dark segmented control. Apps without a report omit
+  that button only.
 
 ## 6. Panels (fixed)
 

@@ -4,5 +4,7 @@ export { RichText } from './RichText.js';
 export { ChartFrame, useElementSize } from './ChartFrame.js';
 export { AppHeader } from './AppHeader.js';
 export type { HeaderTab } from './AppHeader.js';
+export { useTheme, setTheme, initTheme } from './theme.js';
+export type { Theme } from './theme.js';
 export { Modal, ReportDialog, today } from './Modal.js';
 export { pct, Dash, UtilValue, PassFail, Cols, StatusChip, ResultsHeader, Banner, CollapsePanel, Formula } from './results.js';
