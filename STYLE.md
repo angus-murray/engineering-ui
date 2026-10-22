@@ -96,21 +96,25 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 - Content width `max-w-7xl mx-auto`, page padding `p-3`, gap between columns and panels `gap-3` / `space-y-3`.
 - `.tab-grid`: one column on mobile; `lg:` 340 px input column plus the rest.
 - `.input-column`: sticky below the header, scrolls on its own with `.scroll-thin`.
-- The main graphic (3D viewer, elevation, chart) sits at the top of the results column. On a 1920 × 1080 screen
-  the graphic and the top summary panel must both be visible without scrolling. Baseplate2D uses
+- The main graphic (3D viewer, elevation, chart) sits at the top of the results column. On a 1080p screen in a
+  browser (a viewport of about 1920 × 950) the graphic and the top summary panel must both be visible without
+  scrolling, with the app's default inputs. Baseplate2D uses
   `h-[560px] lg:h-[calc(100vh-350px)] lg:min-h-[420px] lg:max-h-[900px]`.
 - Adaptable: the number of input panels, whether the results column has a 3D viewer, charts or tables only, and
   whether there are tabs. Apps without a graphic put the Results panel at the top.
 - **Fill-the-window variant** (Bridge1D): when the results fit on one screen, add `.fill-window` to the page root
   (`lg:h-screen lg:overflow-hidden flex flex-col`, with `<main>` as `flex-1 flex flex-col lg:min-h-0`). The input
   column scrolls on its own and the results column fills the rest of the window height.
+- **Charts that share a results panel** use `ChartFrame`: each takes the height left in the panel between a minimum
+  and a maximum (Bridge1D: 150–250 px), so the panel fits the window; below the minimum the panel scrolls. Blocks in
+  a results panel are separated by the panel's own spacing, not by horizontal rules, to save height.
 
 ## 5. Header (fixed)
 
 - Sticky, `bg-white border-b border-slate-200 shadow-sm`, `py-3`, contents in `max-w-7xl`.
 - Left: favicon logo (32–36 px), app name, "Created by Angus Murray" baseline aligned.
 - Apps with several tabs show them as a row under the name (`AppHeader` `tabs`): icon plus label, active tab blue
-  with a blue underline.
+  with a blue underline. The header is then compact (name row `py-2`, tab row directly below), 90 px in total.
 - Right: **About** as a text button with an info icon (12/14 px medium slate-600, blue on hover), then
   **PDF Report** as a small solid blue button (`h-8 text-xs font-semibold bg-blue-600 rounded px-3`) with a file
   icon. Apps without a report omit that button only.

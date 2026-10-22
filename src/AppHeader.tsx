@@ -36,7 +36,7 @@ export function AppHeader<K extends string = string>({
   return (
   <header className="bg-white border-b border-slate-200 shadow-sm shrink-0 sticky top-0 z-30">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className={`py-3 flex items-center gap-3 ${tabs ? 'border-b border-slate-100' : ''}`}>
+      <div className={`flex items-center gap-3 ${tabs ? 'py-2 border-b border-slate-100' : 'py-3'}`}>
         {logoSrc && <img src={logoSrc} alt="" className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" />}
         <div className="flex items-baseline gap-3 min-w-0">
           <h1 className="font-black text-slate-900 text-2xl sm:text-3xl tracking-tight">{name}</h1>
@@ -67,7 +67,7 @@ export function AppHeader<K extends string = string>({
         </div>
       </div>
       {tabs && (
-        <nav className="flex space-x-6 overflow-x-auto py-2 text-xs sm:text-sm font-medium" role="tablist">
+        <nav className="flex space-x-6 overflow-x-auto pt-1.5 text-xs sm:text-sm font-medium" role="tablist">
           {tabs.map((t) => (
             <button
               key={t.key}
@@ -75,7 +75,7 @@ export function AppHeader<K extends string = string>({
               role="tab"
               aria-selected={activeTab === t.key}
               onClick={() => onTab?.(t.key)}
-              className={`flex items-center gap-2 pb-1.5 border-b-2 transition-colors whitespace-nowrap ${
+              className={`flex items-center gap-2 pb-2 border-b-2 transition-colors whitespace-nowrap ${
                 activeTab === t.key ? 'border-blue-600 text-blue-600 font-semibold' : 'border-transparent text-slate-600 hover:text-slate-900'
               }`}
             >

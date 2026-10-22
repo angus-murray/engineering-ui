@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+- `ChartFrame` and `useElementSize`: a chart that takes the height available in a flex column (between
+  `minHeight` and `maxHeight`) and passes its size to the drawing.
+- `AppHeader` with tabs is more compact (90 px instead of 106 px); the header without tabs is unchanged.
+
 ## 1.1.0
 - `NumberField`: `decimals` (fixed decimals shown when not editing); the up / down arrow keys step the value.
 - `useNumberText`: optional `format` and `onStep` arguments.

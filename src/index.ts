@@ -1,6 +1,7 @@
 export { NumberField, SelectField, Check, Segmented } from './controls.js';
 export { useNumberText } from './useNumberText.js';
 export { RichText } from './RichText.js';
+export { ChartFrame, useElementSize } from './ChartFrame.js';
 export { AppHeader } from './AppHeader.js';
 export type { HeaderTab } from './AppHeader.js';
 export { Modal, ReportDialog, today } from './Modal.js';
