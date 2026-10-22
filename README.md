@@ -1,8 +1,8 @@
 # engineering-ui
 
-Shared look and feel for the engineering apps (Baseplate2d, Bridge1D, Pile1D, Barrier5100, Boltcheck, …): the
+Shared look and feel for the engineering apps (Baseplate2D, Bridge1D, Pile1D, Barrier5100, Boltcheck, …): the
 Tailwind theme, form controls, header, pop-ups and results components. The rules they implement are in
-[STYLE.md](STYLE.md); Baseplate2d is the reference app.
+[STYLE.md](STYLE.md); Baseplate2D is the reference app.
 
 ## Use in an app
 
@@ -13,7 +13,7 @@ bun add github:angus-murray/engineering-ui#<tag or commit>
 ```
 
 Pin to a release tag (`#v1.0.0`) or a full commit hash; both are fixed, so the app only changes when its
-`package.json` is updated. Baseplate2d pins version 1.0.0 by its commit,
+`package.json` is updated. Baseplate2D pins version 1.0.0 by its commit,
 `48f9078b2c52a30b3d2df8f93ba78553df7ef7f0`.
 
 Main CSS file (e.g. `src/index.css`):

@@ -1,6 +1,6 @@
 # House Style — Engineering Apps
 
-Baseplate2d is the reference implementation of the look and feel shared by all engineering apps (Baseplate2d,
+Baseplate2D is the reference implementation of the look and feel shared by all engineering apps (Baseplate2D,
 Bridge1D, Pile1D, Barrier5100, Boltcheck and future apps). When this guide and an app disagree, this guide wins
 unless the app records a deliberate deviation in its own `AGENTS.md`.
 
@@ -24,7 +24,7 @@ implements it:
 | Results | `ResultsHeader`, `StatusChip`, `Banner`, `UtilValue`, `PassFail`, `Cols`, `Dash`, `pct` |
 | Symbols in strings (`f_y`, `β_N^1.5`) | `RichText` |
 
-Reference app: Baseplate2d (`angus-murray/baseplate2d`) — screenshots in its `docs/style/`,
+Reference app: Baseplate2D (`angus-murray/baseplate2d`) — screenshots in its `docs/style/`,
 PDF report in its `src/utils/report.ts`.
 
 ---
@@ -97,7 +97,7 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 - `.tab-grid`: one column on mobile; `lg:` 340 px input column plus the rest.
 - `.input-column`: sticky below the header, scrolls on its own with `.scroll-thin`.
 - The main graphic (3D viewer, elevation, chart) sits at the top of the results column. On a 1920 × 1080 screen
-  the graphic and the top summary panel must both be visible without scrolling. Baseplate2d uses
+  the graphic and the top summary panel must both be visible without scrolling. Baseplate2D uses
   `h-[560px] lg:h-[calc(100vh-350px)] lg:min-h-[420px] lg:max-h-[900px]`.
 - Adaptable: the number of input panels, whether the results column has a 3D viewer, charts or tables only, and
   whether there are tabs. Apps without a graphic put the Results panel at the top.
