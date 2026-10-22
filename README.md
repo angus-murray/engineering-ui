@@ -14,6 +14,7 @@ Tailwind theme, form controls, header, pop-ups and results components. The rules
 | Core Characteristic | `angus-murray/core-characteristic` | yes |
 | Barrier5100 | `angus-murray/barrier5100` | not yet |
 | BOLTCHECK | `angus-murray/boltcheck` | not yet |
+| PedTruss | `angus-murray/pedestrian-truss` | yes |
 
 Mimitally and Ruler are not engineering apps: this package and its style guide do not apply to them. Any new
 engineering app is added to this table.
