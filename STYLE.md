@@ -136,7 +136,7 @@ All from the package; do not hand-roll alternatives.
 
 | Control | Rules |
 | --- | --- |
-| `NumberField` | Label above. Value left-aligned. **Up/down arrows inside the box on the right** (`.spin` / `.spin-btn`, lucide `ChevronUp`/`ChevronDown` 11 px) — click or press and hold to repeat; the keyboard arrow keys also step. **Never −/+ buttons.** Free typing; committed and clamped on blur or Enter; Escape reverts. Custom stepping (standard sizes) through `onStepUp` / `onStepDown`; fixed decimals through `decimals`. |
+| `NumberField` | Label above. Value left-aligned. **Up/down arrows inside the box on the right** (`.spin` / `.spin-btn`, lucide `ChevronUp`/`ChevronDown` 11 px) — click or press and hold to repeat; the keyboard arrow keys also step. **Never −/+ buttons.** Free typing; committed and clamped on blur or Enter; Escape reverts. Custom stepping (standard sizes) through `onStepUp` / `onStepDown`; fixed decimals through `decimals`. A field that may be left empty (a default worked out by the app) uses `onClear` with `placeholder="Auto"`. Negative values show a true minus sign (−). |
 | Not-applicable input | Disabled with `disabledText="–"` (an **en-dash**), no arrows. |
 | Read-only derived value | `.control bg-slate-50 text-slate-700`, `readOnly` (e.g. *f*<sub>y</sub>, *f*<sub>u</sub> from a grade). |
 | `SelectField` | Native `<select class="control">` with the shared slate chevron. Option text Title Case and short enough to fit the box. |
