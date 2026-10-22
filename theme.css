@@ -50,6 +50,8 @@
 
   .panel { @apply bg-white p-3 rounded-lg border border-slate-200 shadow-2xs space-y-2.5; }
   .panel-title { @apply text-[13px] font-bold text-slate-800 border-b border-slate-100 pb-1.5; }
+  /* Title row of a results panel: title (and legend) on the left, controls or status on the right */
+  .panel-header { @apply flex flex-wrap items-center justify-between gap-2 min-h-7 border-b border-slate-100 pb-1.5; }
 
   .section { @apply pt-2.5 mt-0.5 border-t border-slate-100 space-y-2.5; }
   .nested { @apply pl-5 pt-1.5 space-y-2.5; }

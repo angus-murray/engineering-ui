@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0
+- `NumberField`: `onClear` and `placeholder` for fields that may be left empty (e.g. "Auto"); `value` may be
+  undefined. Negative values are shown with a minus sign (−), and −, – or - are accepted when typing.
+- Press and hold on the arrows: one step at once, then repeated steps every 60 ms after a 300 ms pause.
+- `theme.css`: `.panel-header` (title row of a results panel).
+
 ## 1.2.0
 - `ChartFrame` and `useElementSize`: a chart that takes the height available in a flex column (between
   `minHeight` and `maxHeight`) and passes its size to the drawing.

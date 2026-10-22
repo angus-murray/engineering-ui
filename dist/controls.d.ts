@@ -5,8 +5,12 @@ import React from 'react';
  */
 export declare const NumberField: React.FC<{
     label?: React.ReactNode;
-    value: number;
+    /** undefined shows an empty box (with the placeholder), for fields that allow it (see onClear). */
+    value: number | undefined;
     onChange: (v: number) => void;
+    /** Allows the box to be cleared; called when it is left empty. */
+    onClear?: () => void;
+    placeholder?: string;
     min?: number;
     max?: number;
     step?: number;

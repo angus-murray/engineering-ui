@@ -8,8 +8,12 @@ import { useNumberText } from './useNumberText.js';
  */
 export const NumberField: React.FC<{
   label?: React.ReactNode;
-  value: number;
+  /** undefined shows an empty box (with the placeholder), for fields that allow it (see onClear). */
+  value: number | undefined;
   onChange: (v: number) => void;
+  /** Allows the box to be cleared; called when it is left empty. */
+  onClear?: () => void;
+  placeholder?: string;
   min?: number;
   max?: number;
   step?: number;
@@ -24,13 +28,17 @@ export const NumberField: React.FC<{
   hint?: React.ReactNode;
   small?: boolean;
   title?: string;
-}> = ({ label, value, onChange, min, max, step = 1, onStepUp, onStepDown, disabled, disabledText, decimals, hint, small, title }) => {
-  const field = useNumberText(value, onChange, min, max, decimals === undefined ? String : (v) => v.toFixed(decimals), (dir) => stepBy(dir));
+}> = ({ label, value, onChange, onClear, placeholder, min, max, step = 1, onStepUp, onStepDown, disabled, disabledText, decimals, hint, small, title }) => {
+  const field = useNumberText(value, onChange, min, max, decimals === undefined ? String : (v) => v.toFixed(decimals), (dir) => stepBy(dir), onClear);
   const valueRef = useRef(value);
   valueRef.current = value;
+  // Press and hold: one step at once, then repeated steps after a short pause
+  const delay = useRef<ReturnType<typeof setTimeout> | null>(null);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   const stop = useCallback(() => {
+    if (delay.current) clearTimeout(delay.current);
     if (timer.current) clearInterval(timer.current);
+    delay.current = null;
     timer.current = null;
   }, []);
   useEffect(() => stop, [stop]);
@@ -55,7 +63,9 @@ export const NumberField: React.FC<{
     }
     stop();
     stepBy(dir);
-    timer.current = setInterval(() => stepBy(dir), 120);
+    delay.current = setTimeout(() => {
+      timer.current = setInterval(() => stepBy(dir), 60);
+    }, 300);
   };
   return (
     <div title={title}>
@@ -64,7 +74,7 @@ export const NumberField: React.FC<{
         <input type="text" value={disabledText} readOnly disabled className="control tabular-nums" />
       ) : (
         <div className="relative">
-          <input type="text" inputMode="decimal" {...field} disabled={disabled} className="control tabular-nums pr-6" />
+          <input type="text" inputMode="decimal" {...field} disabled={disabled} placeholder={placeholder} className="control tabular-nums pr-6 placeholder:text-slate-400" />
           {!disabled && (
             <div className="spin">
               <button type="button" tabIndex={-1} className="spin-btn" title="Increase (click or hold)" onPointerDown={press(1)} onPointerUp={stop} onPointerCancel={stop}>

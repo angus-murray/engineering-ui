@@ -155,7 +155,7 @@ All from the package; do not hand-roll alternatives.
 
 ## 8. Results (fixed rules, adaptable content)
 
-- **Results panel title row**: "Results" (`text-[13px] font-bold`) on the left, overall status chip on the right:
+- **Results panel title row** (`ResultsHeader`, or `.panel-header` for a custom row): "Results" (`text-[13px] font-bold`) on the left, overall status chip on the right:
   - Not solved: slate chip "Not Solved — click Solve to run the analysis" (or "Solving…").
   - Pass: emerald chip with check icon, "… PASS (Max Util: 87.3%)".
   - Fail: rose chip with warning icon, "… FAIL (Bolt 112.4%, Weld 104.0%)".

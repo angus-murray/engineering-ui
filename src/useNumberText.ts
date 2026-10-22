@@ -9,20 +9,27 @@ import React, { useEffect, useState } from 'react';
  * - External value changes are reflected when the field is not being edited.
  * - `format` sets how the value is shown when not editing (e.g. fixed decimals).
  * - `onStep`, if given, is called with +1 / -1 for the up / down arrow keys; the field then shows the new value.
+ * - `onClear`, if given, allows an empty field: clearing it calls onClear (the value is then undefined, shown empty).
+ * - Negative values are shown with a minus sign (−); −, – and - are all accepted when typing.
  */
+const parse = (t: string) => parseFloat(t.trim().replace(/[\u2212\u2013\u2014]/g, '-'));
+const minus = (t: string) => t.replace(/^-/, '\u2212');
+
 export function useNumberText(
-  value: number,
+  value: number | undefined,
   onChange: (v: number) => void,
   min?: number,
   max?: number,
   format: (v: number) => string = String,
-  onStep?: (dir: 1 | -1) => void
+  onStep?: (dir: 1 | -1) => void,
+  onClear?: () => void
 ) {
-  const [text, setText] = useState(format(value));
+  const show = (v: number | undefined) => (v === undefined || Number.isNaN(v) ? '' : minus(format(v)));
+  const [text, setText] = useState(show(value));
   const [editing, setEditing] = useState(false);
 
   useEffect(() => {
-    if (!editing) setText(format(value));
+    if (!editing) setText(show(value));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, editing]);
 
@@ -31,14 +38,19 @@ export function useNumberText(
 
   const commit = () => {
     setEditing(false);
-    const v = parseFloat(text);
+    if (onClear && text.trim() === '') {
+      if (value !== undefined) onClear();
+      setText('');
+      return;
+    }
+    const v = parse(text);
     if (!Number.isFinite(v)) {
-      setText(format(value));
+      setText(show(value));
       return;
     }
     const c = clamp(v);
     if (c !== value) onChange(c);
-    setText(format(c));
+    setText(show(c));
   };
 
   return {
@@ -47,7 +59,7 @@ export function useNumberText(
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
       setEditing(true);
       setText(e.target.value);
-      const v = parseFloat(e.target.value);
+      const v = parse(e.target.value);
       if (Number.isFinite(v) && inRange(v) && v !== value) onChange(v);
     },
     onBlur: commit,
@@ -60,7 +72,7 @@ export function useNumberText(
       }
       if (e.key === 'Enter') (e.target as HTMLInputElement).blur();
       if (e.key === 'Escape') {
-        setText(format(value));
+        setText(show(value));
         setEditing(false);
         (e.target as HTMLInputElement).blur();
       }

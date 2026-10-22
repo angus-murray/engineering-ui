@@ -6,14 +6,19 @@ import { useNumberText } from './useNumberText.js';
  * Form controls: label above, up / down arrows inside the box (press and hold to repeat; the arrow keys also step),
  * free typing committed on blur / Enter. An input that does not apply is disabled with disabledText="–" (an en-dash).
  */
-export const NumberField = ({ label, value, onChange, min, max, step = 1, onStepUp, onStepDown, disabled, disabledText, decimals, hint, small, title }) => {
-    const field = useNumberText(value, onChange, min, max, decimals === undefined ? String : (v) => v.toFixed(decimals), (dir) => stepBy(dir));
+export const NumberField = ({ label, value, onChange, onClear, placeholder, min, max, step = 1, onStepUp, onStepDown, disabled, disabledText, decimals, hint, small, title }) => {
+    const field = useNumberText(value, onChange, min, max, decimals === undefined ? String : (v) => v.toFixed(decimals), (dir) => stepBy(dir), onClear);
     const valueRef = useRef(value);
     valueRef.current = value;
+    // Press and hold: one step at once, then repeated steps after a short pause
+    const delay = useRef(null);
     const timer = useRef(null);
     const stop = useCallback(() => {
+        if (delay.current)
+            clearTimeout(delay.current);
         if (timer.current)
             clearInterval(timer.current);
+        delay.current = null;
         timer.current = null;
     }, []);
     useEffect(() => stop, [stop]);
@@ -42,9 +47,11 @@ export const NumberField = ({ label, value, onChange, min, max, step = 1, onStep
         }
         stop();
         stepBy(dir);
-        timer.current = setInterval(() => stepBy(dir), 120);
+        delay.current = setTimeout(() => {
+            timer.current = setInterval(() => stepBy(dir), 60);
+        }, 300);
     };
-    return (_jsxs("div", { title: title, children: [label && _jsx("label", { className: small ? 'sublabel' : 'label', children: label }), disabled && disabledText !== undefined ? (_jsx("input", { type: "text", value: disabledText, readOnly: true, disabled: true, className: "control tabular-nums" })) : (_jsxs("div", { className: "relative", children: [_jsx("input", { type: "text", inputMode: "decimal", ...field, disabled: disabled, className: "control tabular-nums pr-6" }), !disabled && (_jsxs("div", { className: "spin", children: [_jsx("button", { type: "button", tabIndex: -1, className: "spin-btn", title: "Increase (click or hold)", onPointerDown: press(1), onPointerUp: stop, onPointerCancel: stop, children: _jsx(ChevronUp, { size: 11, strokeWidth: 2.5 }) }), _jsx("button", { type: "button", tabIndex: -1, className: "spin-btn", title: "Decrease (click or hold)", onPointerDown: press(-1), onPointerUp: stop, onPointerCancel: stop, children: _jsx(ChevronDown, { size: 11, strokeWidth: 2.5 }) })] }))] })), hint && _jsx("p", { className: "hint", children: hint })] }));
+    return (_jsxs("div", { title: title, children: [label && _jsx("label", { className: small ? 'sublabel' : 'label', children: label }), disabled && disabledText !== undefined ? (_jsx("input", { type: "text", value: disabledText, readOnly: true, disabled: true, className: "control tabular-nums" })) : (_jsxs("div", { className: "relative", children: [_jsx("input", { type: "text", inputMode: "decimal", ...field, disabled: disabled, placeholder: placeholder, className: "control tabular-nums pr-6 placeholder:text-slate-400" }), !disabled && (_jsxs("div", { className: "spin", children: [_jsx("button", { type: "button", tabIndex: -1, className: "spin-btn", title: "Increase (click or hold)", onPointerDown: press(1), onPointerUp: stop, onPointerCancel: stop, children: _jsx(ChevronUp, { size: 11, strokeWidth: 2.5 }) }), _jsx("button", { type: "button", tabIndex: -1, className: "spin-btn", title: "Decrease (click or hold)", onPointerDown: press(-1), onPointerUp: stop, onPointerCancel: stop, children: _jsx(ChevronDown, { size: 11, strokeWidth: 2.5 }) })] }))] })), hint && _jsx("p", { className: "hint", children: hint })] }));
 };
 export const SelectField = ({ label, value, onChange, options, disabled, hint }) => (_jsxs("div", { children: [label && _jsx("label", { className: "label", children: label }), _jsx("select", { value: value, onChange: (e) => onChange(e.target.value), disabled: disabled, className: "control", children: options.map((o) => (_jsx("option", { value: o.value, children: o.label }, o.value))) }), hint && _jsx("p", { className: "hint", children: hint })] }));
 export const Check = ({ checked, onChange, children, disabled, title }) => (_jsxs("label", { className: `check ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`, title: title, children: [_jsx("input", { type: "checkbox", className: "checkbox", checked: checked, disabled: disabled, onChange: (e) => onChange(e.target.checked) }), _jsx("span", { children: children })] }));
