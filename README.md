@@ -1,8 +1,22 @@
 # engineering-ui
 
-Shared look and feel for the engineering apps (Baseplate2D, Bridge1D, Pile1D, Barrier5100, Boltcheck, …): the
+Shared look and feel for the engineering apps (see the list below): the
 Tailwind theme, form controls, header, pop-ups and results components. The rules they implement are in
 [STYLE.md](STYLE.md); Baseplate2D is the reference app.
+
+## The engineering apps
+
+| App | Repository | On engineering-ui |
+| --- | --- | --- |
+| Baseplate2D (reference app) | `angus-murray/baseplate2d` | yes |
+| Bridge1D | `angus-murray/bridge1d` | yes |
+| Pile1D | `angus-murray/pile1d` | yes |
+| Core Characteristic | `angus-murray/core-characteristic` | yes |
+| Barrier5100 | `angus-murray/barrier5100` | not yet |
+| BOLTCHECK | `angus-murray/boltcheck` | not yet |
+
+Mimitally and Ruler are not engineering apps: this package and its style guide do not apply to them. Any new
+engineering app is added to this table.
 
 ## Use in an app
 
