@@ -44,6 +44,19 @@ import { AppHeader, Modal, ReportDialog, NumberField, SelectField, Check, Segmen
 </div>
 ```
 
+## Updating an app to the latest version
+
+Ask for it in a session on that app ("update to the latest engineering-ui"). The steps are:
+
+1. Point `package.json` at the latest commit or tag (`npm install github:angus-murray/engineering-ui#<commit>` or
+   `bun add …`; for bun, remove and re-add the package if the lock file keeps the old commit) and update every lock
+   file the app has.
+2. Check the installed version (`node_modules/engineering-ui/package.json`), run the app's typecheck, build and
+   tests, and compare it in the browser with the version before.
+3. Commit and push to the app's working branch; merging to `main` puts it live.
+
+The changelog lists what each version changes.
+
 ## Changing the style
 
 1. Change it here (code and `STYLE.md` together), run `bun run build`, and commit `dist/` with the source.

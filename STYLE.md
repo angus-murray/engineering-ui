@@ -208,7 +208,19 @@ All from the package; do not hand-roll alternatives.
 - Symbols: italic with subscripts in the UI; `x_y` in strings passed to `RichText` and the report renderer.
 - Not-applicable: en-dash in inputs, em-dash in tables.
 
-## 13. Checklist for a new or migrated app
+## 13. Analytics (fixed)
+
+Every app loads Vercel Web Analytics with these lines just before `</head>` in `index.html`:
+
+```html
+<!-- Vercel Web Analytics -->
+<script defer src="/_vercel/insights/script.js"></script>
+```
+
+Web Analytics must also be enabled for the project in the Vercel dashboard (Project → Analytics → Enable); until
+it is, the script is not served and nothing is recorded.
+
+## 14. Checklist for a new or migrated app
 
 - [ ] Header matches §5, including the baseline-aligned "Created by".
 - [ ] `engineering-ui` installed at the current tag; `theme.css` imported after Tailwind; no local copies of its classes.
@@ -218,4 +230,5 @@ All from the package; do not hand-roll alternatives.
 - [ ] Graphic plus summary visible without scrolling at 1920 × 1080.
 - [ ] About modal states every significant assumption.
 - [ ] PDF report per §11 (if the app reports).
+- [ ] Vercel Web Analytics script in `index.html` (§13), and Web Analytics enabled in the Vercel dashboard.
 - [ ] Deviations recorded in the app's `AGENTS.md`.
