@@ -101,11 +101,16 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
   `h-[560px] lg:h-[calc(100vh-350px)] lg:min-h-[420px] lg:max-h-[900px]`.
 - Adaptable: the number of input panels, whether the results column has a 3D viewer, charts or tables only, and
   whether there are tabs. Apps without a graphic put the Results panel at the top.
+- **Fill-the-window variant** (Bridge1D): when the results fit on one screen, add `.fill-window` to the page root
+  (`lg:h-screen lg:overflow-hidden flex flex-col`, with `<main>` as `flex-1 flex flex-col lg:min-h-0`). The input
+  column scrolls on its own and the results column fills the rest of the window height.
 
 ## 5. Header (fixed)
 
 - Sticky, `bg-white border-b border-slate-200 shadow-sm`, `py-3`, contents in `max-w-7xl`.
 - Left: favicon logo (32–36 px), app name, "Created by Angus Murray" baseline aligned.
+- Apps with several tabs show them as a row under the name (`AppHeader` `tabs`): icon plus label, active tab blue
+  with a blue underline.
 - Right: **About** as a text button with an info icon (12/14 px medium slate-600, blue on hover), then
   **PDF Report** as a small solid blue button (`h-8 text-xs font-semibold bg-blue-600 rounded px-3`) with a file
   icon. Apps without a report omit that button only.
@@ -116,7 +121,10 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 - `.panel-title` at the top of every input panel.
 - `.section` divides a panel into groups (top rule, same spacing); a group may have an `h3.card-title`.
 - `.nested` indents options that depend on a checkbox above.
-- **No grey hint or help text in the input panels.** Explanations go in a `title` tooltip or in the About page.
+- **No grey hint or help text in the input panels.** Explanations (ranges, notes, caveats) go in a `title`
+  tooltip on the control or the panel title, or in the About page.
+- A **calculated value** shown in an input panel (a lane factor, a total) is a readout row, label left and value
+  right (`.readout` / `.readout-value`), not hint text.
 
 ## 7. Form controls (fixed)
 
@@ -124,7 +132,7 @@ All from the package; do not hand-roll alternatives.
 
 | Control | Rules |
 | --- | --- |
-| `NumberField` | Label above. Value left-aligned. **Up/down arrows inside the box on the right** (`.spin` / `.spin-btn`, lucide `ChevronUp`/`ChevronDown` 11 px) — click or press and hold to repeat. **Never −/+ buttons.** Free typing; committed and clamped on blur or Enter; Escape reverts. Custom stepping (standard sizes) through `onStepUp` / `onStepDown`. |
+| `NumberField` | Label above. Value left-aligned. **Up/down arrows inside the box on the right** (`.spin` / `.spin-btn`, lucide `ChevronUp`/`ChevronDown` 11 px) — click or press and hold to repeat; the keyboard arrow keys also step. **Never −/+ buttons.** Free typing; committed and clamped on blur or Enter; Escape reverts. Custom stepping (standard sizes) through `onStepUp` / `onStepDown`; fixed decimals through `decimals`. |
 | Not-applicable input | Disabled with `disabledText="–"` (an **en-dash**), no arrows. |
 | Read-only derived value | `.control bg-slate-50 text-slate-700`, `readOnly` (e.g. *f*<sub>y</sub>, *f*<sub>u</sub> from a grade). |
 | `SelectField` | Native `<select class="control">` with the shared slate chevron. Option text Title Case and short enough to fit the box. |

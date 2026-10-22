@@ -3,8 +3,8 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useNumberText } from './useNumberText.js';
 
 /**
- * Form controls: label above, up / down arrows inside the box (press and hold to repeat), free typing committed on
- * blur / Enter. An input that does not apply is disabled with disabledText="–" (an en-dash).
+ * Form controls: label above, up / down arrows inside the box (press and hold to repeat; the arrow keys also step),
+ * free typing committed on blur / Enter. An input that does not apply is disabled with disabledText="–" (an en-dash).
  */
 export const NumberField: React.FC<{
   label?: React.ReactNode;
@@ -16,14 +16,16 @@ export const NumberField: React.FC<{
   /** Custom stepping (e.g. through standard sizes); defaults to ± step. */
   /** Text shown instead of the value while disabled (e.g. an en-dash for an input that does not apply). */
   disabledText?: string;
+  /** Fixed number of decimals shown when not editing (e.g. 2 → "2.50"). */
+  decimals?: number;
   onStepUp?: () => void;
   onStepDown?: () => void;
   disabled?: boolean;
   hint?: React.ReactNode;
   small?: boolean;
   title?: string;
-}> = ({ label, value, onChange, min, max, step = 1, onStepUp, onStepDown, disabled, disabledText, hint, small, title }) => {
-  const field = useNumberText(value, onChange, min, max);
+}> = ({ label, value, onChange, min, max, step = 1, onStepUp, onStepDown, disabled, disabledText, decimals, hint, small, title }) => {
+  const field = useNumberText(value, onChange, min, max, decimals === undefined ? String : (v) => v.toFixed(decimals), (dir) => stepBy(dir));
   const valueRef = useRef(value);
   valueRef.current = value;
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -46,7 +48,11 @@ export const NumberField: React.FC<{
   const press = (dir: 1 | -1) => (e: React.PointerEvent<HTMLButtonElement>) => {
     if (disabled) return;
     e.preventDefault();
-    e.currentTarget.setPointerCapture(e.pointerId);
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      // no active pointer (e.g. a synthetic event); repeat still stops on pointer up
+    }
     stop();
     stepBy(dir);
     timer.current = setInterval(() => stepBy(dir), 120);

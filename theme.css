@@ -37,6 +37,17 @@
   .input-column { @apply space-y-3 lg:sticky lg:top-[74px] lg:max-h-[calc(100vh-86px)] lg:overflow-y-auto lg:-mr-1.5; }
   .results-column { @apply flex flex-col gap-3 min-w-0; }
 
+  /* Fill-the-window variant (an app whose results fit on one screen): put .fill-window on the page root, which is
+     then lg:h-screen lg:overflow-hidden flex flex-col, with <main> flex-1 flex flex-col lg:min-h-0. The inputs scroll
+     on their own and the results column fills the rest of the window height. */
+  .fill-window .tab-grid { @apply lg:flex-1 lg:min-h-0 lg:items-stretch; }
+  .fill-window .input-column { @apply lg:static lg:max-h-none lg:min-h-0; }
+  .fill-window .results-column { @apply lg:min-h-0; }
+
+  /* A calculated value shown in an input panel: label on the left, value on the right (not grey hint text). */
+  .readout { @apply flex items-baseline justify-between gap-2 text-[11px] font-medium text-slate-600; }
+  .readout-value { @apply text-xs font-normal text-slate-800 tabular-nums text-right; }
+
   .panel { @apply bg-white p-3 rounded-lg border border-slate-200 shadow-2xs space-y-2.5; }
   .panel-title { @apply text-[13px] font-bold text-slate-800 border-b border-slate-100 pb-1.5; }
 

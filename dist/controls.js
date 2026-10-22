@@ -3,11 +3,11 @@ import { useCallback, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useNumberText } from './useNumberText.js';
 /**
- * Form controls: label above, up / down arrows inside the box (press and hold to repeat), free typing committed on
- * blur / Enter. An input that does not apply is disabled with disabledText="–" (an en-dash).
+ * Form controls: label above, up / down arrows inside the box (press and hold to repeat; the arrow keys also step),
+ * free typing committed on blur / Enter. An input that does not apply is disabled with disabledText="–" (an en-dash).
  */
-export const NumberField = ({ label, value, onChange, min, max, step = 1, onStepUp, onStepDown, disabled, disabledText, hint, small, title }) => {
-    const field = useNumberText(value, onChange, min, max);
+export const NumberField = ({ label, value, onChange, min, max, step = 1, onStepUp, onStepDown, disabled, disabledText, decimals, hint, small, title }) => {
+    const field = useNumberText(value, onChange, min, max, decimals === undefined ? String : (v) => v.toFixed(decimals), (dir) => stepBy(dir));
     const valueRef = useRef(value);
     valueRef.current = value;
     const timer = useRef(null);
@@ -34,7 +34,12 @@ export const NumberField = ({ label, value, onChange, min, max, step = 1, onStep
         if (disabled)
             return;
         e.preventDefault();
-        e.currentTarget.setPointerCapture(e.pointerId);
+        try {
+            e.currentTarget.setPointerCapture(e.pointerId);
+        }
+        catch {
+            // no active pointer (e.g. a synthetic event); repeat still stops on pointer up
+        }
         stop();
         stepBy(dir);
         timer.current = setInterval(() => stepBy(dir), 120);

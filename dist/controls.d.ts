@@ -1,7 +1,7 @@
 import React from 'react';
 /**
- * Form controls: label above, up / down arrows inside the box (press and hold to repeat), free typing committed on
- * blur / Enter. An input that does not apply is disabled with disabledText="–" (an en-dash).
+ * Form controls: label above, up / down arrows inside the box (press and hold to repeat; the arrow keys also step),
+ * free typing committed on blur / Enter. An input that does not apply is disabled with disabledText="–" (an en-dash).
  */
 export declare const NumberField: React.FC<{
     label?: React.ReactNode;
@@ -13,6 +13,8 @@ export declare const NumberField: React.FC<{
     /** Custom stepping (e.g. through standard sizes); defaults to ± step. */
     /** Text shown instead of the value while disabled (e.g. an en-dash for an input that does not apply). */
     disabledText?: string;
+    /** Fixed number of decimals shown when not editing (e.g. 2 → "2.50"). */
+    decimals?: number;
     onStepUp?: () => void;
     onStepDown?: () => void;
     disabled?: boolean;
