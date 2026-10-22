@@ -9,8 +9,12 @@ Tailwind theme, form controls, header, pop-ups and results components. The rules
 Requirements: React 18+, Tailwind CSS v4, `lucide-react`.
 
 ```bash
-bun add github:angus-murray/engineering-ui#v1.0.0
+bun add github:angus-murray/engineering-ui#<tag or commit>
 ```
+
+Pin to a release tag (`#v1.0.0`) or a full commit hash; both are fixed, so the app only changes when its
+`package.json` is updated. Baseplate2d pins version 1.0.0 by its commit,
+`48f9078b2c52a30b3d2df8f93ba78553df7ef7f0`.
 
 Main CSS file (e.g. `src/index.css`):
 
@@ -43,10 +47,12 @@ import { AppHeader, Modal, ReportDialog, NumberField, SelectField, Check, Segmen
 ## Changing the style
 
 1. Change it here (code and `STYLE.md` together), run `bun run build`, and commit `dist/` with the source.
-2. Bump `version` in `package.json` and tag the commit (`git tag v1.1.0 && git push --tags`).
-3. In each app, update the tag in `package.json` (`bun add github:angus-murray/engineering-ui#v1.1.0`) when ready.
+2. Bump `version` in `package.json` and add a `CHANGELOG.md` entry. Tag the commit (`git tag v1.1.0 && git push
+   --tags`, or create a release named `v1.1.0` on GitHub).
+3. In each app, update the tag or commit in `package.json` (`bun add github:angus-murray/engineering-ui#v1.1.0`)
+   when ready, then check the app in the browser.
 
-Apps stay on the tag they name until they are updated, so a change never reaches a live app unannounced.
+Apps stay on the version they name until they are updated, so a change never reaches a live app unannounced.
 Breaking changes (renamed props or classes) take a new major version.
 
 `dist/` is committed because apps install the package straight from GitHub without a build step.
