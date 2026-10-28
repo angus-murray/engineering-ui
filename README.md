@@ -12,6 +12,7 @@ Tailwind theme, form controls, header, pop-ups and results components. The rules
 | Bridge1D | `angus-murray/bridge1d` | yes |
 | Pile1D | `angus-murray/pile1d` | yes |
 | Core Characteristic | `angus-murray/core-characteristic` | yes |
+| Strut&Tie2D | `angus-murray/strutandtie2d` | yes |
 | Barrier5100 | `angus-murray/barrier5100` | not yet |
 | BOLTCHECK | `angus-murray/boltcheck` | not yet |
 
