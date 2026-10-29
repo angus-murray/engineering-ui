@@ -1,7 +1,7 @@
 # House Style — Engineering Apps
 
 Baseplate2D is the reference implementation of the look and feel shared by all engineering apps (Baseplate2D,
-Bridge1D, Pile1D, Core Characteristic, Barrier5100, BOLTCHECK and future engineering apps; the list is in the
+Bridge1D, Pile1D, Core Characteristic, Barrier5100, BOLTCHECK, ConcreteSection2D and future engineering apps; the list is in the
 README. Mimitally and Ruler are not engineering apps and are not covered). When this guide and an app disagree, this guide wins
 unless the app records a deliberate deviation in its own `AGENTS.md`.
 
