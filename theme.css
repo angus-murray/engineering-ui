@@ -147,7 +147,7 @@
   --color-pink-900: oklch(90.5% 0.08 354.308);
 }
 /* Text on coloured fills (text-white) is dark ink in the dark theme. */
-[data-theme="dark"] :is(.text-white, .btn-primary, .segment-active) {
+[data-theme="dark"] :is(.text-white, .btn-primary, .segment-active, .tool-btn-active) {
   --color-white: var(--dk-ink);
 }
 /* Input boxes sit slightly below the panel surface. */
@@ -273,6 +273,15 @@
   .link-btn { @apply text-[11px] font-medium text-blue-600 hover:text-blue-800; }
   .btn { @apply h-8 px-3 inline-flex items-center justify-center gap-1.5 text-xs font-medium rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 disabled:opacity-50; }
   .btn-primary { @apply h-8 px-3 inline-flex items-center justify-center gap-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 shadow-sm; }
+
+  /* Drawing toolbar (as StrutAndTie2D): a white card of tool buttons floating over the drawing. Icons are Lucide at
+     14 px with the 2 px stroke (custom icons through ToolIcon); the active tool is solid blue. A tool with a menu of
+     modes opens .tool-menu beside its button. */
+  .toolbar { @apply bg-white border border-slate-200 rounded-lg shadow-2xs p-1 flex flex-col gap-0.5; }
+  .tool-btn { @apply h-7 w-full px-2 inline-flex items-center gap-1.5 rounded-md text-xs font-medium text-slate-700 hover:bg-slate-100 transition-colors disabled:opacity-40 disabled:pointer-events-none; }
+  .tool-btn-active { @apply bg-blue-600 text-white hover:bg-blue-600; }
+  .tool-sep { @apply my-0.5 border-t border-slate-200; }
+  .tool-menu { @apply absolute left-full top-0 ml-2 z-20 bg-white border border-slate-200 rounded-lg shadow-lg p-1 flex flex-col gap-0.5 min-w-32; }
 
   /* Segmented control (two or three options) */
   .segmented { @apply grid p-0.5 bg-slate-100 border border-slate-300 rounded-lg; }

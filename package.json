@@ -1,6 +1,6 @@
 {
   "name": "engineering-ui",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Shared look and feel for the engineering apps: Tailwind theme, form controls, header, pop-ups and results components.",
   "type": "module",
   "main": "./dist/index.js",

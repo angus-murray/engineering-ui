@@ -20,6 +20,7 @@ implements it:
 | --- | --- |
 | All component classes (panels, labels, controls, tables, layout) | `theme.css` |
 | Form controls | `NumberField`, `SelectField`, `Check`, `Segmented`, `useNumberText` |
+| Drawing toolbar | `.toolbar`, `.tool-btn`, `.tool-btn-active`, `.tool-sep`, `.tool-menu` (theme.css), `ToolIcon` |
 | Header | `AppHeader` |
 | About and PDF Report pop-ups | `Modal` (variant `page` for About), `ReportDialog`, `CollapsePanel`, `Formula` |
 | Results | `ResultsHeader`, `StatusChip`, `Banner`, `UtilValue`, `PassFail`, `Cols`, `Dash`, `pct` |
@@ -198,8 +199,12 @@ All from the package; do not hand-roll alternatives.
 
 ## 9. Graphics (adaptable)
 
-- Background `bg-slate-50`. Tool buttons stacked in a white floating toolbar (`rounded-lg`, slate border,
-  `shadow-2xs`, 12 px labels, active item blue).
+- Background `bg-slate-50`. Tool buttons stacked in a white floating toolbar, as StrutAndTie2D: `.toolbar` (white,
+  `rounded-lg`, slate border, `shadow-2xs`, `p-1`) holding `.tool-btn` buttons (28 px high, icon and 12 px medium
+  slate-700 label, slate-100 on hover), the active tool `.tool-btn-active` (solid blue, white text), groups split by
+  `.tool-sep`. A tool with several modes (e.g. ways of placing bars) opens `.tool-menu` beside its button.
+- Toolbar icons are Lucide at 14 px (`w-3.5 h-3.5`) with Lucide's 2 px stroke. Draw any icon Lucide lacks with
+  `ToolIcon` (the same 24-unit grid and 2 px stroke), at full weight: no thinner or faded strokes in toolbar icons.
 - A **Solve** button (where the app has an explicit analysis step): blue "Solve" → spinner "Cancel" (rose
   outline) while running → emerald "Solved" when up to date; grey and disabled with a tooltip when blocked.
 - Colour legends: white card, 11 px text, tabular figures.

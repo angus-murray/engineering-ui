@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0
+- Drawing toolbar, as in StrutAndTie2D: `.toolbar`, `.tool-btn`, `.tool-btn-active` (solid blue, dark ink on blue in
+  the dark theme), `.tool-sep` and `.tool-menu` (a menu of modes beside a tool button).
+- `ToolIcon`: custom icons on the Lucide grid with the 2 px stroke, so they match Lucide icons in a toolbar.
+- STYLE.md §9: toolbar icons at full weight (Lucide's 2 px stroke).
+
 ## 1.5.0
 - Dark theme for drawings: SVG shapes coloured with the Tailwind slate greys or white as hex attributes switch to
   the dark theme's equivalents automatically.
