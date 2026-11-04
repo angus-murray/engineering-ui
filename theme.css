@@ -211,6 +211,11 @@
 .input-column::-webkit-scrollbar { display: none; }
 
 @layer base {
+  /* The page scrollbar's space is always reserved, so that results appearing or disappearing (the page getting taller or
+     shorter than the window) do not shift the whole layout sideways when the scrollbar comes and goes. */
+  html {
+    scrollbar-gutter: stable;
+  }
   svg, svg * {
     outline: none !important;
     -webkit-tap-highlight-color: transparent;
