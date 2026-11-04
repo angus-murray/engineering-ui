@@ -115,6 +115,8 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 - Content width `max-w-7xl mx-auto`, page padding `p-3`, gap between columns and panels `gap-3` / `space-y-3`.
   **Every gap is 12 px**: header to panels, between the two columns, between panels and to the window edge.
 - `.tab-grid`: one column on mobile; `lg:` 340 px input column plus the rest.
+- The page scrollbar's space is always reserved (`html { scrollbar-gutter: stable }` in `theme.css`), so that results appearing or disappearing do not
+  shift the layout sideways. A new app gets this by importing the theme.
 - `.input-column`: sticky 12 px below the header (61 px, or 90 px with tabs), scrolls on its own without a visible
   scrollbar so the gap beside it stays 12 px.
 - The main graphic (3D viewer, elevation, chart) sits at the top of the results column. On a 1080p screen in a

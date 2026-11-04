@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.2
+- `theme.css`: `html { scrollbar-gutter: stable }`. The page scrollbar's space is always reserved, so a page that becomes taller or shorter
+  than the window (results appearing or disappearing) no longer shifts every panel sideways by the scrollbar's width.
+
 ## 1.6.1
 - `NumberField` / `useNumberText`: the up / down arrows now work in a box that has focus. The box kept showing the old
   text and leaving it restored the old value, so the arrows appeared dead after clicking into a box.
