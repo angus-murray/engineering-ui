@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.1
+- `NumberField` / `useNumberText`: the up / down arrows now work in a box that has focus. The box kept showing the old
+  text and leaving it restored the old value, so the arrows appeared dead after clicking into a box.
+
 ## 1.6.0
 - Drawing toolbar, as in StrutAndTie2D: `.toolbar`, `.tool-btn`, `.tool-btn-active` (solid blue, dark ink on blue in
   the dark theme), `.tool-sep` and `.tool-menu` (a menu of modes beside a tool button).

@@ -6,7 +6,8 @@ import React, { useEffect, useState } from 'react';
  *
  * - While typing, a value is passed on only when it is a valid number within [min, max].
  * - On blur or Enter, the value is clamped to [min, max] and committed; an empty or invalid entry reverts.
- * - External value changes are reflected when the field is not being edited.
+ * - External value changes are reflected when the field is not being edited, and while editing when they differ from what
+ *   the text says (the arrows step a box that has focus).
  * - `format` sets how the value is shown when not editing (e.g. fixed decimals).
  * - `onStep`, if given, is called with +1 / -1 for the up / down arrow keys; the field then shows the new value.
  * - `onClear`, if given, allows an empty field: clearing it calls onClear (the value is then undefined, shown empty).
@@ -29,7 +30,9 @@ export function useNumberText(
   const [editing, setEditing] = useState(false);
 
   useEffect(() => {
-    if (!editing) setText(show(value));
+    // Follow the value when not editing, and also when it was changed by something other than typing in the box (the
+    // arrows): otherwise a box with focus keeps showing the old text, and leaving it puts that old value back.
+    if (!editing || parse(text) !== value) setText(show(value));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, editing]);
 
