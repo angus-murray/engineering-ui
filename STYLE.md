@@ -104,7 +104,7 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 ┌──────────────────────── header (sticky, white, bottom border) ────────────────────────┐
 │ [logo] AppName  Created by Angus Murray                                [PDF Report]  ☰ │
 └────────────────────────────────────────────────────────────────────────────────────────┘
-┌─ inputs 340 px ─┐ ┌─ results (rest of width) ─────────────────────────────────────────┐
+┌─ inputs ¼ ──────┐ ┌─ results ¾ ───────────────────────────────────────────────────────┐
 │ panel           │ │ viewer / chart (fits the screen with the summary panel below it)  │
 │ panel           │ │ Results panel: title + overall status chip                        │
 │ panel  (scrolls │ │   banners (errors, warnings)                                      │
@@ -112,9 +112,9 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 └─────────────────┘ └────────────────────────────────────────────────────────────────────┘
 ```
 
-- Content width `max-w-7xl mx-auto`, page padding `p-3`, gap between columns and panels `gap-3` / `space-y-3`.
+- Full width (header, tabs and page: no maximum width), page padding `p-3`, gap between columns and panels `gap-3` / `space-y-3`.
   **Every gap is 12 px**: header to panels, between the two columns, between panels and to the window edge.
-- `.tab-grid`: one column on mobile; `lg:` 340 px input column plus the rest.
+- `.tab-grid`: one column on mobile; from `lg:` the input column is ¼ of the width (at least 340 px) and the results ¾.
 - The page scrollbar's space is always reserved (`html { scrollbar-gutter: stable }` in `theme.css`), so that results appearing or disappearing do not
   shift the layout sideways. A new app gets this by importing the theme.
 - `.input-column`: sticky 12 px below the header (61 px, or 90 px with tabs), scrolls on its own without a visible
@@ -134,7 +134,7 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 
 ## 5. Header (fixed)
 
-- Sticky, `bg-white border-b border-slate-200 shadow-sm`, `py-3`, contents in `max-w-7xl`.
+- Sticky, `bg-white border-b border-slate-200 shadow-sm`, `py-3`, contents full width with `px-3` (the same 12 px as the page).
 - Left: favicon logo (32–36 px), app name, "Created by Angus Murray" baseline aligned.
 - Apps with several tabs show them as a row under the name (`AppHeader` `tabs`): icon plus label, active tab blue
   with a blue underline. The header is then compact (name row `py-2`, tab row directly below), 90 px in total.

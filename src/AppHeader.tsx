@@ -37,7 +37,7 @@ export function AppHeader<K extends string = string>({
   useInitTheme();
   return (
   <header data-tabs={tabs ? '' : undefined} className="bg-white border-b border-slate-200 shadow-sm shrink-0 sticky top-0 z-30">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="px-3">
       <div className={`flex items-center gap-3 ${tabs ? 'py-2 border-b border-slate-100' : 'py-3'}`}>
         {logoSrc && <img src={logoSrc} alt="" className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" />}
         <div className="flex items-baseline gap-3 min-w-0">
