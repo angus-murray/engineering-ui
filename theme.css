@@ -295,8 +295,9 @@
 
   /* Results tables: equal column widths (fixed layout), every cell centred horizontally and vertically */
   .rtable { @apply w-full table-fixed border-collapse tabular-nums; }
-  .rtable th { @apply py-1 px-2 text-[11px] font-semibold text-slate-700 text-center align-middle; }
-  .rtable td { @apply py-1 px-2 text-xs text-slate-800 text-center align-middle; }
+  /* Every cell is centred, horizontally and vertically, with no per-column exceptions (!important so a utility class cannot override it) */
+  .rtable th { @apply py-1 px-2 text-[11px] font-semibold text-slate-700 text-center! align-middle!; }
+  .rtable td { @apply py-1 px-2 text-xs text-slate-800 text-center! align-middle!; }
   .rtable thead tr { @apply bg-slate-50 border-b border-slate-200; }
   .rtable tbody tr { @apply border-b border-slate-100 last:border-0 hover:bg-slate-50; }
 

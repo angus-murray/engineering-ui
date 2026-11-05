@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.3
+- `.rtable`: header and body cells are always centred horizontally and vertically; a utility class such as `text-left` on a cell no longer overrides it. STYLE.md §8 says so.
+
 ## 1.6.2
 - `theme.css`: `html { scrollbar-gutter: stable }`. The page scrollbar's space is always reserved, so a page that becomes taller or shorter
   than the window (results appearing or disappearing) no longer shifts every panel sideways by the scrollbar's width.

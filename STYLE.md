@@ -188,7 +188,7 @@ All from the package; do not hand-roll alternatives.
   Bold title with icon, 11 px list below.
 - **Only physical impossibilities block the analysis.** Detailing breaches (edge distance, spacing, minimum
   sizes) are warnings; the analysis still runs.
-- **Tables** (`.rtable`): fixed layout, cells centred horizontally and vertically, grouped headers
+- **Tables** (`.rtable`): fixed layout, every cell centred horizontally and vertically (no left-aligned columns, text ones included; `theme.css` enforces it), grouped headers
   (`colSpan` with `border-x`), slate-50 header row. Column widths set per table with `<Cols w={[…]} />` so text
   does not wrap needlessly. Wide tables scroll horizontally (`overflow-x-auto`, `min-w-[…]`).
 - **Utilisation**: percentage to one decimal ("87.3%", "> 999%" above 9.99). The governing value in each row is a
