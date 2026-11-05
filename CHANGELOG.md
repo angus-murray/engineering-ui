@@ -1,9 +1,13 @@
 # Changelog
 
+## 1.7.1
+- `.tab-grid`: the input column is at least 420 px (it was 340 px in 1.7.0), so tables of inputs still fit on screens
+  where a quarter of the width is narrower. From about 1700 px wide it is exactly ¼.
+
 ## 1.7.0
 - Layout: full width. `AppHeader` (name, tabs, buttons) now runs the full width of the window with 12 px side padding,
   instead of being centred in `max-w-7xl`; an app's page content (`<main>`) should be `w-full p-3` to match.
-- `.tab-grid`: the input column is ¼ of the width and the results ¾ (the input column is at least 340 px), instead
+- `.tab-grid`: the input column is ¼ of the width and the results ¾ (at least 340 px here, 420 px from 1.7.1), instead
   of a fixed 340 px column. This gives the drawing the room of a wide screen and the input panels room for tables.
 - STYLE.md: page layout, `.tab-grid` and header sections updated.
 
