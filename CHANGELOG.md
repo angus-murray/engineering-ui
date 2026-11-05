@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.7.2
+- Width: the header and an app's page content are capped at 1600 px and centred (`max-w-[1600px] mx-auto`), between the
+  1280 px of 1.6 and the full width of 1.7.0 / 1.7.1. An app's `<main>` is `max-w-[1600px] w-full mx-auto p-3`.
+- `.tab-grid`: the input column is ¼ of the width, at least 380 px (1.7.1: 420 px), so about 390 px on a wide screen.
+
 ## 1.7.1
 - `.tab-grid`: the input column is at least 420 px (it was 340 px in 1.7.0), so tables of inputs still fit on screens
   where a quarter of the width is narrower. From about 1700 px wide it is exactly ¼.

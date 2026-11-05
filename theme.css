@@ -228,7 +228,7 @@
   /* Inputs in a fixed-width column that scrolls on its own (sticky 12 px below the header); the viewer and the
      results use the rest of the width and the page scrolls through the results. Every gap between panels, and
      between the header and the panels, is 12 px. */
-  .tab-grid { @apply grid grid-cols-1 lg:grid-cols-[minmax(420px,1fr)_minmax(0,3fr)] gap-3 items-start; }
+  .tab-grid { @apply grid grid-cols-1 lg:grid-cols-[minmax(380px,1fr)_minmax(0,3fr)] gap-3 items-start; }
   .input-column { @apply space-y-3 lg:sticky lg:top-[calc(var(--header-h)+12px)] lg:max-h-[calc(100vh-var(--header-h)-24px)] lg:overflow-y-auto; }
   .results-column { @apply flex flex-col gap-3 min-w-0; }
 
