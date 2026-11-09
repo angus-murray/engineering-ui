@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.3
+- STYLE.md §9: text on zoomable drawings stays at a constant screen size when zooming; neutral-axis lines are dashed 8 / 6,
+  1.25 px, at a constant screen size and stopping 12 px short of the view's edges, with no label (as in ConcreteSection2D).
+
 ## 1.7.2
 - Width: the header and an app's page content are capped at 1600 px and centred (`max-w-[1600px] mx-auto`), between the
   1280 px of 1.6 and the full width of 1.7.0 / 1.7.1. An app's `<main>` is `max-w-[1600px] w-full mx-auto p-3`.

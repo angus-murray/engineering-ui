@@ -209,6 +209,10 @@ All from the package; do not hand-roll alternatives.
   `ToolIcon` (the same 24-unit grid and 2 px stroke), at full weight: no thinner or faded strokes in toolbar icons.
 - A **Solve** button (where the app has an explicit analysis step): blue "Solve" → spinner "Cancel" (rose
   outline) while running → emerald "Solved" when up to date; grey and disabled with a tooltip when blocked.
+- **Zoomable drawings keep their text at a constant screen size.** Zooming scales the geometry (outlines, diagrams, bar and
+  strand circles) but never the numbers and labels, which stay 11 px (bar and strand numbers 9 px bold), so zooming out
+  does not make them unreadable. Neutral-axis and similar reference lines are dashed 8 px / 6 px, 1.25 px wide, at a
+  constant screen size, running the width of the view and stopping 12 px short of its edges; they carry no label.
 - Colour legends: white card, 11 px text, tabular figures.
 
 ### Graphics in the dark theme (fixed)
