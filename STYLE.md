@@ -241,11 +241,13 @@ Every drawing must read well in both themes. The light theme is the reference; d
 - Version numbers have two parts, *major.minor* (engineering-ui itself follows the same convention):
   - **Major** changes with a substantial rework of the app (a new analysis method, scope or layout), so that results
     or use differ materially from earlier versions. The minor number restarts at 0.
-  - **Minor** changes with every release that users can see: a new feature, a fix that changes results, or a change
-    to the interface. Internal changes alone do not change it.
-  - The date is the month and year of the release (when it is merged to `main`), passed as `'YYYY-MM'`.
-  - Each app keeps its version and date in one place (for example `src/version.js`) and changes them in the same
-    commit as the change they describe.
+  - **Minor** changes with a release that adds or changes something significant for users, such as a new feature or
+    a fix that changes results. Small tweaks (wording, styling, layout adjustments) do not change it.
+  - The date is the month and year of the release, passed as `'YYYY-MM'`.
+  - Each app keeps its version and date in one place (for example `src/version.js`).
+  - **The version and date are changed only when the app's owner confirms the new number.** Agents never change them
+    on their own initiative; when a change might warrant a new version, they ask and suggest a number.
+- engineering-ui follows the same two-number convention and the same rule for its own version.
 - Collapsible panels (closed by default), 13 px bold titles with a chevron, 12 px body slate-700, relaxed
   leading.
 - Formulas in a centred slate-50 box; tables use `.rtable` with per-table widths.

@@ -2,6 +2,7 @@
 
 ## 1.8
 - Versions now have two numbers, major.minor (README, STYLE.md §10); `package.json` holds `1.8.0` because npm needs three.
+- Version numbers (the apps' and this package's) change only when the owner confirms them; small tweaks do not change them.
 - About page: `AboutModal` (the About `Modal` with `AppInfo` as its first panel) and `AppInfo` (logo, app name, "Version 2.3,
   November 2026" and "Created by Angus Murray"). `formatReleaseDate('2026-11')` gives "November 2026".
 - `AppHeader` no longer shows "Created by …"; the author is in the About page. The `author` prop is still accepted but ignored.

@@ -88,7 +88,8 @@ The changelog lists what each version changes.
 ## Changing the style
 
 1. Change it here (code and `STYLE.md` together), run `bun run build`, and commit `dist/` with the source.
-2. Bump `version` in `package.json` and add a `CHANGELOG.md` entry. Tag the commit (`git tag v1.8 && git push
+2. Bump `version` in `package.json` (only once the owner has confirmed the new number; see STYLE.md §10) and add a
+   `CHANGELOG.md` entry. Tag the commit (`git tag v1.8 && git push
    --tags`, or create a release named `v1.8` on GitHub).
 3. In each app, update the tag or commit in `package.json` (`bun add github:angus-murray/engineering-ui#v1.8`)
    when ready, then check the app in the browser.
