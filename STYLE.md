@@ -238,7 +238,7 @@ Every drawing must read well in both themes. The light theme is the reference; d
 - Opens from the header menu as a modal (`AboutModal`: `max-w-5xl`, slate-100 backdrop panel, × and Escape and outside click close).
 - The first panel (`AppInfo`, always open) gives the logo and app name, **Version 2.3, November 2026** and **Created by
   Angus Murray**. These are not shown anywhere else in the app.
-- Version numbers have two parts, *major.minor*:
+- Version numbers have two parts, *major.minor* (engineering-ui itself follows the same convention):
   - **Major** changes with a substantial rework of the app (a new analysis method, scope or layout), so that results
     or use differ materially from earlier versions. The minor number restarts at 0.
   - **Minor** changes with every release that users can see: a new feature, a fix that changes results, or a change

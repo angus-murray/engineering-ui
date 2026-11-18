@@ -27,7 +27,7 @@ Requirements: React 18+, Tailwind CSS v4, `lucide-react`.
 bun add github:angus-murray/engineering-ui#<tag or commit>
 ```
 
-Pin to a release tag (`#v1.0.0`) or a full commit hash; both are fixed, so the app only changes when its
+Pin to a release tag (`#v1.8`) or a full commit hash; both are fixed, so the app only changes when its
 `package.json` is updated. Baseplate2D pins version 1.0.0 by its commit,
 `48f9078b2c52a30b3d2df8f93ba78553df7ef7f0`.
 
@@ -88,15 +88,17 @@ The changelog lists what each version changes.
 ## Changing the style
 
 1. Change it here (code and `STYLE.md` together), run `bun run build`, and commit `dist/` with the source.
-2. Bump `version` in `package.json` and add a `CHANGELOG.md` entry. Tag the commit (`git tag v1.1.0 && git push
-   --tags`, or create a release named `v1.1.0` on GitHub).
-3. In each app, update the tag or commit in `package.json` (`bun add github:angus-murray/engineering-ui#v1.1.0`)
+2. Bump `version` in `package.json` and add a `CHANGELOG.md` entry. Tag the commit (`git tag v1.8 && git push
+   --tags`, or create a release named `v1.8` on GitHub).
+3. In each app, update the tag or commit in `package.json` (`bun add github:angus-murray/engineering-ui#v1.8`)
    when ready, then check the app in the browser.
 
 Apps stay on the version they name until they are updated, so a change never reaches a live app unannounced.
 Breaking changes (renamed props or classes) take a new major version.
 
-This package keeps three-part versions (major.minor.patch) because apps pin it and need to know when a change can
-break them. The apps themselves show two-part versions with a month and year in their About page (STYLE.md §10).
+Versions have two numbers, major.minor, as in the apps (STYLE.md §10): a breaking change takes a new major number,
+anything else a new minor number. From 1.8 the changelog, tags (`v1.8`) and documents use the two numbers. The
+`version` field in `package.json` adds `.0` (`1.8.0`) because npm refuses to install a package whose version has only
+two numbers; the third number is always 0.
 
 `dist/` is committed because apps install the package straight from GitHub without a build step.

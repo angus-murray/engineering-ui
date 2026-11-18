@@ -12,7 +12,7 @@ export interface HeaderTab<K extends string = string> {
 export declare function AppHeader<K extends string = string>({ name, logoSrc, onAbout, onReport, actions, tabs, activeTab, onTab }: {
     name: string;
     logoSrc?: string;
-    /** @deprecated Ignored since 1.8.0: the author is shown in the About page (AboutModal / AppInfo). */
+    /** @deprecated Ignored since 1.8: the author is shown in the About page (AboutModal / AppInfo). */
     author?: string;
     onAbout?: () => void;
     onReport?: () => void;
