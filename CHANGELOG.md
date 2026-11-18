@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.8.0
+- About page: `AboutModal` (the About `Modal` with `AppInfo` as its first panel) and `AppInfo` (logo, app name, "Version 2.3,
+  November 2026" and "Created by Angus Murray"). `formatReleaseDate('2026-11')` gives "November 2026".
+- `AppHeader` no longer shows "Created by …"; the author is in the About page. The `author` prop is still accepted but ignored.
+- STYLE.md §10: app versions are two-part, major.minor, with the month and year of the release; §3, §4, §5 and §14 updated.
+
 ## 1.7.3
 - STYLE.md §9: text on zoomable drawings stays at a constant screen size when zooming; neutral-axis lines are dashed 8 / 6,
   1.25 px, at a constant screen size and stopping 12 px short of the view's edges, with no label (as in ConcreteSection2D).

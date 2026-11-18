@@ -22,7 +22,7 @@ implements it:
 | Form controls | `NumberField`, `SelectField`, `Check`, `Segmented`, `useNumberText` |
 | Drawing toolbar | `.toolbar`, `.tool-btn`, `.tool-btn-active`, `.tool-sep`, `.tool-menu` (theme.css), `ToolIcon` |
 | Header | `AppHeader` |
-| About and PDF Report pop-ups | `Modal` (variant `page` for About), `ReportDialog`, `CollapsePanel`, `Formula` |
+| About and PDF Report pop-ups | `AboutModal` (with `AppInfo`), `Modal`, `ReportDialog`, `CollapsePanel`, `Formula` |
 | Results | `ResultsHeader`, `StatusChip`, `Banner`, `UtilValue`, `PassFail`, `Cols`, `Dash`, `pct` |
 | Symbols in strings (`f_y`, `β_N^1.5`) | `RichText` |
 
@@ -81,7 +81,6 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 | Element | Style | Class |
 | --- | --- | --- |
 | App name (header) | 24 / 30 px black, tight tracking | `font-black text-2xl sm:text-3xl tracking-tight` |
-| "Created by Angus Murray" | 12 / 14 px medium slate-500, **baseline aligned with the app name** (`flex items-baseline`) | |
 | Panel title | 13 px bold slate-800, rule below | `.panel-title` |
 | Sub-heading inside a panel or results | 13 px bold slate-800 | `.card-title` |
 | Input label | **11 px medium slate-600** | `.label` (`.sublabel` is identical) |
@@ -102,7 +101,7 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 
 ```
 ┌──────────────────────── header (sticky, white, bottom border) ────────────────────────┐
-│ [logo] AppName  Created by Angus Murray                                [PDF Report]  ☰ │
+│ [logo] AppName                                                          [PDF Report]  ☰ │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ┌─ inputs ¼ ──────┐ ┌─ results ¾ ───────────────────────────────────────────────────────┐
 │ panel           │ │ viewer / chart (fits the screen with the summary panel below it)  │
@@ -135,7 +134,7 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 ## 5. Header (fixed)
 
 - Sticky, `bg-white border-b border-slate-200 shadow-sm`, `py-3`, contents in `max-w-[1600px]` with `px-3` (the same 12 px as the page).
-- Left: favicon logo (32–36 px), app name, "Created by Angus Murray" baseline aligned.
+- Left: favicon logo (32–36 px) and app name only. The author, version and release month are in the About page (§10).
 - Apps with several tabs show them as a row under the name (`AppHeader` `tabs`): icon plus label, active tab blue
   with a blue underline. The header is then compact (name row `py-2`, tab row directly below), 90 px in total.
 - Right: **PDF Report** as a small solid blue button (`h-8 text-xs font-semibold bg-blue-600 rounded px-3`) with a
@@ -236,7 +235,17 @@ Every drawing must read well in both themes. The light theme is the reference; d
 
 ## 10. About pop-up (fixed)
 
-- Opens from the header as a modal (`max-w-5xl`, slate-100 backdrop panel, × and Escape and outside click close).
+- Opens from the header menu as a modal (`AboutModal`: `max-w-5xl`, slate-100 backdrop panel, × and Escape and outside click close).
+- The first panel (`AppInfo`, always open) gives the logo and app name, **Version 2.3, November 2026** and **Created by
+  Angus Murray**. These are not shown anywhere else in the app.
+- Version numbers have two parts, *major.minor*:
+  - **Major** changes with a substantial rework of the app (a new analysis method, scope or layout), so that results
+    or use differ materially from earlier versions. The minor number restarts at 0.
+  - **Minor** changes with every release that users can see: a new feature, a fix that changes results, or a change
+    to the interface. Internal changes alone do not change it.
+  - The date is the month and year of the release (when it is merged to `main`), passed as `'YYYY-MM'`.
+  - Each app keeps its version and date in one place (for example `src/version.js`) and changes them in the same
+    commit as the change they describe.
 - Collapsible panels (closed by default), 13 px bold titles with a chevron, 12 px body slate-700, relaxed
   leading.
 - Formulas in a centred slate-50 box; tables use `.rtable` with per-table widths.
@@ -273,7 +282,8 @@ it is, the script is not served and nothing is recorded.
 
 ## 14. Checklist for a new or migrated app
 
-- [ ] Header matches §5, including the baseline-aligned "Created by".
+- [ ] Header matches §5 (logo and name only; no "Created by").
+- [ ] About page opens with `AppInfo` (version major.minor, month and year, author), §10.
 - [ ] `engineering-ui` installed at the current tag; `theme.css` imported after Tailwind; no local copies of its classes.
 - [ ] Form controls, header, pop-ups and results components imported from the package.
 - [ ] No hint text in input panels.

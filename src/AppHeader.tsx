@@ -3,8 +3,8 @@ import { FileText, Info, Menu, Moon, Sun, SunMoon } from 'lucide-react';
 import { useInitTheme, useTheme } from './theme.js';
 
 /**
- * Sticky app header: logo, app name with "Created by …" on the same baseline, then PDF Report (solid blue button)
- * and the menu (About, Theme) on the right. Leave out onReport for an app without a report; extra buttons go in
+ * Sticky app header: logo and app name, then PDF Report (solid blue button) and the menu (About, Theme) on the
+ * right. The author, version and release month are in the About page (AboutModal), not the header. Leave out onReport for an app without a report; extra buttons go in
  * `actions`, before PDF Report. An app with several tabs passes `tabs`, shown as a row of tabs under the name.
  */
 export interface HeaderTab<K extends string = string> {
@@ -16,7 +16,6 @@ export interface HeaderTab<K extends string = string> {
 export function AppHeader<K extends string = string>({
   name,
   logoSrc = '/favicon.svg',
-  author = 'Angus Murray',
   onAbout,
   onReport,
   actions,
@@ -26,6 +25,7 @@ export function AppHeader<K extends string = string>({
 }: {
   name: string;
   logoSrc?: string;
+  /** @deprecated Ignored since 1.8.0: the author is shown in the About page (AboutModal / AppInfo). */
   author?: string;
   onAbout?: () => void;
   onReport?: () => void;
@@ -40,10 +40,7 @@ export function AppHeader<K extends string = string>({
     <div className="max-w-[1600px] mx-auto px-3">
       <div className={`flex items-center gap-3 ${tabs ? 'py-2 border-b border-slate-100' : 'py-3'}`}>
         {logoSrc && <img src={logoSrc} alt="" className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" />}
-        <div className="flex items-baseline gap-3 min-w-0">
-          <h1 className="font-black text-slate-900 text-2xl sm:text-3xl tracking-tight">{name}</h1>
-          {author && <span className="text-xs sm:text-sm font-medium text-slate-500">Created by {author}</span>}
-        </div>
+        <h1 className="font-black text-slate-900 text-2xl sm:text-3xl tracking-tight min-w-0">{name}</h1>
         <div className="ml-auto flex items-center gap-3 sm:gap-4">
           {actions}
           {onReport && (

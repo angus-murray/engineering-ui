@@ -48,9 +48,15 @@ To apply a saved Dark theme before the page first paints, add this to `index.htm
 Components:
 
 ```tsx
-import { AppHeader, Modal, ReportDialog, NumberField, SelectField, Check, Segmented, ResultsHeader, StatusChip, Banner, UtilValue, Cols } from 'engineering-ui';
+import { AppHeader, AboutModal, CollapsePanel, Modal, ReportDialog, NumberField, SelectField, Check, Segmented, ResultsHeader, StatusChip, Banner, UtilValue, Cols } from 'engineering-ui';
 
 <AppHeader name="Pile1D" onAbout={() => setShowAbout(true)} onReport={() => setShowReport(true)} />
+
+{showAbout && (
+  <AboutModal name="Pile1D" version="1.2" date="2026-11" onClose={() => setShowAbout(false)}>
+    <CollapsePanel title="Overview" defaultOpen>…</CollapsePanel>
+  </AboutModal>
+)}
 
 <div className="tab-grid">
   <fieldset className="input-column scroll-thin">
@@ -89,5 +95,8 @@ The changelog lists what each version changes.
 
 Apps stay on the version they name until they are updated, so a change never reaches a live app unannounced.
 Breaking changes (renamed props or classes) take a new major version.
+
+This package keeps three-part versions (major.minor.patch) because apps pin it and need to know when a change can
+break them. The apps themselves show two-part versions with a month and year in their About page (STYLE.md §10).
 
 `dist/` is committed because apps install the package straight from GitHub without a build step.

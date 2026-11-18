@@ -7,6 +7,7 @@ export type { HeaderTab } from './AppHeader.js';
 export { useTheme, setTheme, initTheme } from './theme.js';
 export type { Theme } from './theme.js';
 export { Modal, ReportDialog, today } from './Modal.js';
+export { AboutModal, AppInfo, formatReleaseDate } from './About.js';
 export { pct, Dash, UtilValue, PassFail, Cols, StatusChip, ResultsHeader, Banner, CollapsePanel, Formula } from './results.js';
 export { darkTint, themed } from './colour.js';
 export { ToolIcon } from './ToolIcon.js';
