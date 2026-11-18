@@ -1,5 +1,9 @@
 # Changelog
 
+## Changes since 1.8 (no new version)
+- `Modal`: the scrollbar's space is always reserved (`scrollbar-gutter: stable both-edges`), so an About page no longer
+  shifts sideways or changes width when opening or closing a panel makes it taller or shorter than the window.
+
 ## 1.8
 - Versions now have two numbers, major.minor (README, STYLE.md §10); `package.json` holds `1.8.0` because npm needs three.
 - Version numbers (the apps' and this package's) change only when the owner confirms them; small tweaks do not change them.

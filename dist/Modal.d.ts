@@ -1,6 +1,7 @@
 import React from 'react';
 /**
- * Pop-up over a dimmed page. Escape, the × button or a click outside closes it.
+ * Pop-up over a dimmed page. Escape, the × button or a click outside closes it. The scrollbar's space is always
+ * reserved, so the box keeps its width and position when its content grows taller than the window (panels opening).
  * variant 'page' (About): wide, slate-100 background holding panels. variant 'dialog': narrow, white.
  */
 export declare const Modal: React.FC<{

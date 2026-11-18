@@ -1,7 +1,8 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from 'react';
 /**
- * Pop-up over a dimmed page. Escape, the × button or a click outside closes it.
+ * Pop-up over a dimmed page. Escape, the × button or a click outside closes it. The scrollbar's space is always
+ * reserved, so the box keeps its width and position when its content grows taller than the window (panels opening).
  * variant 'page' (About): wide, slate-100 background holding panels. variant 'dialog': narrow, white.
  */
 export const Modal = ({ title, onClose, variant = 'dialog', children }) => {
@@ -13,7 +14,7 @@ export const Modal = ({ title, onClose, variant = 'dialog', children }) => {
     const box = variant === 'page'
         ? 'max-w-5xl bg-slate-100 rounded-lg border border-slate-200 shadow-xl p-3'
         : 'max-w-[520px] bg-white rounded-lg border border-slate-200 shadow-xl p-4';
-    return (_jsx("div", { className: "fixed inset-0 z-50 flex items-start justify-center bg-slate-900/40 dark:bg-black/60 p-3 sm:p-6 overflow-y-auto", onPointerDown: (e) => e.target === e.currentTarget && onClose(), children: _jsxs("div", { className: `relative w-full my-auto ${box}`, children: [_jsxs("div", { className: `flex items-center justify-between pb-2 ${variant === 'page' ? 'px-1' : ''}`, children: [_jsx("h2", { className: "text-[13px] font-bold text-slate-800", children: title }), _jsx("button", { type: "button", onClick: onClose, className: "text-slate-400 hover:text-slate-700 text-lg leading-none px-1", "aria-label": "Close", children: "\u00D7" })] }), children] }) }));
+    return (_jsx("div", { className: "fixed inset-0 z-50 flex items-start justify-center bg-slate-900/40 dark:bg-black/60 p-3 sm:p-6 overflow-y-auto [scrollbar-gutter:stable_both-edges]", onPointerDown: (e) => e.target === e.currentTarget && onClose(), children: _jsxs("div", { className: `relative w-full my-auto ${box}`, children: [_jsxs("div", { className: `flex items-center justify-between pb-2 ${variant === 'page' ? 'px-1' : ''}`, children: [_jsx("h2", { className: "text-[13px] font-bold text-slate-800", children: title }), _jsx("button", { type: "button", onClick: onClose, className: "text-slate-400 hover:text-slate-700 text-lg leading-none px-1", "aria-label": "Close", children: "\u00D7" })] }), children] }) }));
 };
 /**
  * PDF report dialog: optional project details (blank fields are left out of the report) in two columns, then Cancel / Generate PDF.
