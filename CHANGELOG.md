@@ -1,6 +1,8 @@
 # Changelog
 
 ## Changes since 1.8 (no new version)
+- Font: Google Sans Flex replaces the system stack. `theme.css` sets `--font-sans` (system stack as the fallback), and each app adds three
+  `<link>` lines to `index.html` (STYLE.md §1, README, checklist in §14). The font's digits are proportional by default; `tabular-nums` (used by tables and readouts) switches on its `tnum` feature, which it has.
 - `Modal`: the scrollbar's space is always reserved (`scrollbar-gutter: stable both-edges`), so an About page no longer
   shifts sideways or changes width when opening or closing a panel makes it taller or shorter than the window.
 

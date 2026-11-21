@@ -35,8 +35,17 @@ PDF report in its `src/utils/report.ts`.
 
 - React + TypeScript + Vite, Tailwind CSS v4 (`@import "tailwindcss"` with an `@layer components` block).
 - Icons: `lucide-react`, 14–16 px (`w-3.5 h-3.5` in chips and buttons, `w-4 h-4` in banners).
-- Font: the Tailwind `font-sans` system stack. No web fonts. `font-serif` only for Greek letters (φ) and italic
-  symbols inside results text.
+- Font: Google Sans Flex (a variable font, weights 300 to 800) through `font-sans`; `theme.css` sets `--font-sans`, with the
+  system stack as the fallback. Each app loads it with these lines in `index.html`, before `</head>`:
+
+  ```html
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..800&display=swap" />
+  ```
+
+  No other web fonts. `font-serif` only for Greek letters (φ) and italic symbols inside results text. PDF reports keep
+  their embedded font (below).
 - Package manager: bun (`bun.lock`).
 - PDF reports: jsPDF with an embedded DejaVu Sans subset (for φ, ε, √, ≤).
 
@@ -294,5 +303,6 @@ it is, the script is not served and nothing is recorded.
 - [ ] About modal states every significant assumption.
 - [ ] PDF report per §11 (if the app reports).
 - [ ] Every tab checked in the Dark theme too (§9, Graphics in the dark theme), and the saved-theme script in `index.html`.
+- [ ] Google Sans Flex `<link>` lines in `index.html` (§1).
 - [ ] Vercel Web Analytics script in `index.html` (§13), and Web Analytics enabled in the Vercel dashboard.
 - [ ] Deviations recorded in the app's `AGENTS.md`.

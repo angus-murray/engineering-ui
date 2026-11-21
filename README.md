@@ -38,6 +38,14 @@ Main CSS file (e.g. `src/index.css`):
 @import "engineering-ui/theme.css";
 ```
 
+The font is Google Sans Flex (`theme.css` sets `--font-sans`). Add these lines to the `<head>` of `index.html` to load it:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..800&display=swap" />
+```
+
 To apply a saved Dark theme before the page first paints, add this to `index.html` just before `</head>`
 (without it the header applies the theme when it mounts):
 

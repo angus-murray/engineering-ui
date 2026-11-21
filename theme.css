@@ -10,6 +10,14 @@
 @source "./dist";
 
 /*
+ * Font: Google Sans Flex, a variable font from Google Fonts. The app's index.html loads it (STYLE.md §1); until it has loaded, or if it is
+ * blocked, the system stack is used.
+ */
+@theme {
+  --font-sans: 'Google Sans Flex', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/*
  * Dark theme: data-theme="dark" on <html> (set from the header menu; see useTheme). It keeps the class names of the
  * light theme and changes what they mean, so apps need no dark variants of their own:
  * - Neutrals: bg-slate-100 (page) is the darkest surface, bg-white (header, panels, pop-ups) a step lighter,
