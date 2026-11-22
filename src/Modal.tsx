@@ -18,8 +18,8 @@ export const Modal: React.FC<{
   }, [onClose]);
   const box =
     variant === 'page'
-      ? 'max-w-5xl bg-slate-100 rounded-lg border border-slate-200 shadow-xl p-3'
-      : 'max-w-[520px] bg-white rounded-lg border border-slate-200 shadow-xl p-4';
+      ? 'max-w-5xl bg-slate-100 rounded-2xl dark:border dark:border-slate-200 shadow-xl p-3'
+      : 'max-w-[520px] bg-white rounded-2xl dark:border dark:border-slate-200 shadow-xl p-5';
   return (
     <div
       className="fixed inset-0 z-50 flex items-start justify-center bg-slate-900/40 dark:bg-black/60 p-3 sm:p-6 overflow-y-auto [scrollbar-gutter:stable_both-edges]"

@@ -55,14 +55,14 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 
 | Use | Colour |
 | --- | --- |
-| Page background | `bg-slate-100` |
-| Panels, header, pop-ups | `bg-white`, `border-slate-200`, `shadow-2xs` |
+| Page background | `bg-slate-100` (a cool grey leaning slightly blue) |
+| Panels, header, pop-ups | `bg-white`, no border, a soft two-layer shadow (`rounded-2xl` panels, toolbars and menus); inputs are filled `bg-slate-100` and borderless until focused; buttons and segmented controls are pills |
 | Titles | `text-slate-800` (900 for the app name) |
 | Body text, table values | `text-slate-700` / `text-slate-800` |
 | Labels | `text-slate-600` |
 | Muted notes, units beside results | `text-slate-500` |
 | Placeholder / not-applicable dash | `text-slate-400` |
-| Accent (primary buttons, active segment, focus ring, checkboxes) | `blue-600` (hover `blue-700`), focus `ring-blue-500` |
+| Accent (primary buttons, active segment, focus ring, checkboxes) | `blue-600`, a deeper blue (`#2f5de0`; hover `blue-700`), focus `ring-blue-500` |
 | Pass / within limit | `emerald-100` background, `emerald-800` text, `emerald-200` border |
 | At exactly 100 % | `amber-100` / `amber-800` |
 | Warning (does not stop the analysis) | `amber-50` / `amber-200` / `amber-900` |
@@ -73,12 +73,12 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 
 | Use | Dark theme |
 | --- | --- |
-| Page (`bg-slate-100`) | darkest surface, a cool near-neutral grey |
-| Panels, header, pop-ups (`bg-white`) | one step lighter; input boxes slightly below the panel |
+| Page (`bg-slate-100`) | darkest surface, deep navy (`#080b17`) with a faint aurora glow at the top |
+| Panels, header, pop-ups (`bg-white`) | one step lighter (`#10142b`) with a line round panels and toolbars; input boxes below the panel |
 | Table headers, hover, graphics background (`bg-slate-50`) | one step lighter again |
 | Borders (`slate-200`, `slate-300`) | subtle light lines |
 | Text (`slate-500` to `slate-900`) | light grey, muted to strongest |
-| Accent (`blue-600`) | a lighter, softer blue; dark text on blue fills (primary buttons, active segment) |
+| Accent (`blue-600`) | violet (`#8f7df2`); selection is a violet tint with a violet edge; the primary button carries the aurora gradient (green to violet, `--aurora`) with dark text |
 | Pass / 100 % / fail | the same emerald / amber / rose hues: fills are a tint over the panel, text a light shade |
 
 Colours that are not Tailwind classes (hex colours in SVG, canvas or 3D scenes) need care; see **Graphics in the
