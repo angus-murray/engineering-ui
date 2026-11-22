@@ -4,7 +4,7 @@
 - Look: a tonal light theme and an aurora dark theme (STYLE.md §2, §4). Light: the greys lean slightly blue (`--color-slate-*`), the accent is a deeper blue
   (`--color-blue-*`), panels, toolbars and menus have a soft shadow and round corners (`rounded-2xl`) instead of a border, inputs are filled and borderless until
   focused, and buttons and segmented controls are pills. Dark: deep navy surfaces with lavender-grey text, a violet accent in place of blue, a faint
-  aurora glow at the top of the page, the green-to-violet gradient (`--aurora`) on `.btn-primary`, and a line round panels and toolbars. Class names are unchanged.
+  aurora glow across the top of the window (an overlay, so the header and sticky parts keep the page's flat colour), the green-to-violet gradient (`--aurora`) on `.btn-primary`, and a line round panels and toolbars. Class names are unchanged.
 - `AppHeader` has no bar: no background colour of its own (the page's), no shadow or border, so the logo, name and buttons sit directly on the page.
 - Font: Google Sans Flex replaces the system stack. `theme.css` sets `--font-sans` (system stack as the fallback), and each app adds three
   `<link>` lines to `index.html` (STYLE.md §1, README, checklist in §14). The font's digits are proportional by default; `tabular-nums` (used by tables and readouts) switches on its `tnum` feature, which it has.

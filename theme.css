@@ -171,9 +171,11 @@
 [data-theme="dark"] :is(.text-white, .btn-primary) {
   --color-white: var(--dk-ink);
 }
-/* The page: a faint aurora glow at the top of the window (the page root is the element that has both min-h-screen and bg-slate-100). */
-[data-theme="dark"] .min-h-screen.bg-slate-100 {
-  background-image: radial-gradient(900px 380px at 78% -8%, rgba(139, 92, 246, .20), transparent 70%), radial-gradient(760px 340px at 20% -10%, rgba(61, 220, 151, .13), transparent 70%);
+/* The page: a faint aurora glow across the top of the window. It is an overlay above the page (below pop-ups) that lets clicks through, so the page, the header and the sticky parts of an app
+   all keep the same flat colour underneath and no band of a different colour shows. */
+[data-theme="dark"] body::after {
+  content: ''; position: fixed; left: 0; right: 0; top: 0; height: 420px; pointer-events: none; z-index: 40;
+  background-image: radial-gradient(900px 380px at 78% -8%, rgba(139, 92, 246, .16), transparent 70%), radial-gradient(760px 340px at 20% -10%, rgba(61, 220, 151, .10), transparent 70%);
 }
 /* The primary button carries the aurora gradient; the active tool or segment is a violet tint with a violet edge. */
 [data-theme="dark"] .btn-primary { background-color: transparent; background-image: var(--aurora); }
