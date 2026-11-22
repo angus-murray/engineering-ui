@@ -78,7 +78,7 @@ Slate neutrals with a single blue accent. Status colours are used only for statu
 | Table headers, hover, graphics background (`bg-slate-50`) | one step lighter again |
 | Borders (`slate-200`, `slate-300`) | subtle light lines |
 | Text (`slate-500` to `slate-900`) | light grey, muted to strongest |
-| Accent (`blue-600`) | violet (`#8f7df2`); selection is a violet tint with a violet edge; the primary button carries the aurora gradient (green to violet, `--aurora`) with dark text |
+| Accent (`blue-600`) | violet (`#8f7df2`); selection is a violet tint with a violet edge; the app name in the header carries the aurora gradient (green to violet, `--aurora`) |
 | Pass / 100 % / fail | the same emerald / amber / rose hues: fills are a tint over the panel, text a light shade |
 
 Colours that are not Tailwind classes (hex colours in SVG, canvas or 3D scenes) need care; see **Graphics in the

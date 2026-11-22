@@ -41,7 +41,7 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  /* Aurora dark: deep navy surfaces, lavender-grey text, violet selection. The green-to-violet gradient (--aurora) is the brand accent: the primary button, the active tab line and the logo. */
+  /* Aurora dark: deep navy surfaces, lavender-grey text, violet selection. The green-to-violet gradient (--aurora) is the brand accent: the app name in the header. */
   --dk-page: #080b17;
   --dk-surface: #10142b;
   --dk-ink: #07091a;
@@ -177,9 +177,8 @@
   content: ''; position: fixed; left: 0; right: 0; top: 0; height: 420px; pointer-events: none; z-index: 40;
   background-image: radial-gradient(900px 380px at 78% -8%, rgba(139, 92, 246, .16), transparent 70%), radial-gradient(760px 340px at 20% -10%, rgba(61, 220, 151, .10), transparent 70%);
 }
-/* The primary button carries the aurora gradient; the active tool or segment is a violet tint with a violet edge. */
-[data-theme="dark"] .btn-primary { background-color: transparent; background-image: var(--aurora); }
-[data-theme="dark"] .btn-primary:hover { filter: brightness(1.1); background-color: transparent; }
+/* The app name in the header carries the aurora gradient; the active tool or segment is a violet tint with a violet edge. */
+[data-theme="dark"] header h1 { background-image: var(--aurora); -webkit-background-clip: text; background-clip: text; color: transparent; }
 [data-theme="dark"] :is(.tool-btn-active, .segment-active) {
   --color-white: #fff;
   background-color: color-mix(in oklab, #8b5cf6 28%, var(--dk-surface));
