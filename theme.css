@@ -223,6 +223,11 @@
 
 /* The header has no bar: it is the colour of the page (and transparent on a page that fills the window, so the dark theme's glow runs behind it). */
 .fill-window > header { background: transparent; }
+/* Buttons in the header are raised white pills on the page (a tonal fill would vanish into it). */
+header .btn { background-color: #fff; box-shadow: 0 1px 2px rgba(28, 32, 51, .12); }
+header .btn:hover { background-color: var(--color-slate-50); }
+[data-theme="dark"] header .btn { background-color: var(--color-slate-50); box-shadow: none; }
+[data-theme="dark"] header .btn:hover { background-color: var(--color-slate-200); }
 
 /* Header height, for the sticky input column: 61 px, or 90 px with tabs. */
 :root { --header-h: 61px; }
