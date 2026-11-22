@@ -221,6 +221,9 @@
 [data-theme="dark"] svg [stroke="#1e293b" i] { stroke: var(--color-slate-800); }
 [data-theme="dark"] svg [stroke="#0f172a" i] { stroke: var(--color-slate-900); }
 
+/* The header has no bar: it is the colour of the page (and transparent on a page that fills the window, so the dark theme's glow runs behind it). */
+.fill-window > header { background: transparent; }
+
 /* Header height, for the sticky input column: 61 px, or 90 px with tabs. */
 :root { --header-h: 61px; }
 :root:has(header[data-tabs]) { --header-h: 90px; }

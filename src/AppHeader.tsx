@@ -36,9 +36,9 @@ export function AppHeader<K extends string = string>({
 }) {
   useInitTheme();
   return (
-  <header data-tabs={tabs ? '' : undefined} className="bg-white shadow-[0_1px_2px_rgba(28,32,51,.06),0_4px_16px_rgba(28,32,51,.04)] shrink-0 sticky top-0 z-30 dark:shadow-none dark:border-b dark:border-slate-200">
+  <header data-tabs={tabs ? '' : undefined} className="bg-slate-100 shrink-0 sticky top-0 z-30">
     <div className="max-w-[1600px] mx-auto px-3">
-      <div className={`flex items-center gap-3 ${tabs ? 'py-2 border-b border-slate-100' : 'py-3'}`}>
+      <div className={`flex items-center gap-3 ${tabs ? 'py-2' : 'py-3'}`}>
         {logoSrc && <img src={logoSrc} alt="" className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" />}
         <h1 className="font-black text-slate-900 text-2xl sm:text-3xl tracking-tight min-w-0">{name}</h1>
         <div className="ml-auto flex items-center gap-3 sm:gap-4">
