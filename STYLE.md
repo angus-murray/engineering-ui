@@ -109,8 +109,8 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 ## 4. Page layout (adaptable)
 
 ```
-┌──────────────────────── header (sticky, white, bottom border) ────────────────────────┐
-│ [logo] AppName                                                          [PDF Report]  ☰ │
+┌──────────────────────── header (sticky, no bar: the page's colour) ───────────────────┐
+│ [logo] AppName   Tab One  Tab Two                                       [PDF Report]  ☰ │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ┌─ inputs ¼ ──────┐ ┌─ results ¾ ───────────────────────────────────────────────────────┐
 │ panel           │ │ viewer / chart (fits the screen with the summary panel below it)  │
@@ -125,7 +125,7 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 - `.tab-grid`: one column on mobile; from `lg:` the input column is ¼ of the width (at least 380 px, so tables of inputs fit on smaller screens) and the results ¾.
 - The page scrollbar's space is always reserved (`html { scrollbar-gutter: stable }` in `theme.css`), so that results appearing or disappearing do not
   shift the layout sideways. A new app gets this by importing the theme.
-- `.input-column`: sticky 12 px below the header (61 px, or 90 px with tabs), scrolls on its own without a visible
+- `.input-column`: sticky 12 px below the header (61 px, with or without tabs), scrolls on its own without a visible
   scrollbar so the gap beside it stays 12 px.
 - The main graphic (3D viewer, elevation, chart) sits at the top of the results column. On a 1080p screen in a
   browser (a viewport of about 1920 × 950) the graphic and the top summary panel must both be visible without
@@ -142,10 +142,11 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 
 ## 5. Header (fixed)
 
-- Sticky, `bg-white border-b border-slate-200 shadow-sm`, `py-3`, contents in `max-w-[1600px]` with `px-3` (the same 12 px as the page).
+- Sticky, no bar (the page's colour, no shadow or border), `py-3`, contents in `max-w-[1600px]` with `px-3` (the same 12 px as the page).
 - Left: favicon logo (32–36 px) and app name only. The author, version and release month are in the About page (§10).
-- Apps with several tabs show them as a row under the name (`AppHeader` `tabs`): icon plus label, active tab blue
-  with a blue underline. The header is then compact (name row `py-2`, tab row directly below), 90 px in total.
+- Apps with several tabs show them to the right of the name (`AppHeader` `tabs`): icon plus label, active tab blue
+  with a blue underline level with the foot of the name. The header stays one row, 61 px. On a phone (below `sm:`)
+  the tabs wrap onto their own row under the name.
 - Right: **PDF Report** as a small solid blue button (`h-8 text-xs font-semibold bg-blue-600 rounded px-3`) with a
   file icon, then the **menu** button (lucide `Menu`, 20 px, slate-600, blue on hover). The menu opens below it:
   **About** first (info icon), then **Theme** with a Light / Dark segmented control. Apps without a report omit

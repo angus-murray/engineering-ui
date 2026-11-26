@@ -230,9 +230,10 @@ header .btn:hover { background-color: var(--color-slate-50); }
 [data-theme="dark"] header .btn { background-color: var(--color-slate-50); box-shadow: none; }
 [data-theme="dark"] header .btn:hover { background-color: var(--color-slate-200); }
 
-/* Header height, for the sticky input column: 61 px, or 90 px with tabs. */
+/* Header height, for the sticky input column: 61 px, with or without tabs (they sit beside the name); on a phone the
+   tabs take a row of their own below the name. */
 :root { --header-h: 61px; }
-:root:has(header[data-tabs]) { --header-h: 90px; }
+@media (width < 40rem) { :root:has(header[data-tabs]) { --header-h: 90px; } }
 
 /* Thin scrollbar for panels that scroll on their own. The gutter is reserved so contents do not shift. */
 .scroll-thin {

@@ -38,9 +38,29 @@ export function AppHeader<K extends string = string>({
   return (
   <header data-tabs={tabs ? '' : undefined} className="bg-slate-100 shrink-0 sticky top-0 z-30">
     <div className="max-w-[1600px] mx-auto px-3">
-      <div className={`flex items-center gap-3 ${tabs ? 'py-2' : 'py-3'}`}>
+      {/* Tabs sit to the right of the name; on a phone they wrap onto their own row below it. */}
+      <div className={`flex flex-wrap items-center gap-x-3 ${tabs ? 'pt-2 sm:py-3' : 'py-3'}`}>
         {logoSrc && <img src={logoSrc} alt="" className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" />}
         <h1 className="font-black text-slate-900 text-2xl sm:text-3xl tracking-tight min-w-0">{name}</h1>
+        {tabs && (
+          <nav className="order-last w-full sm:order-none sm:w-auto sm:ml-3 sm:self-stretch flex gap-6 overflow-x-auto pt-1.5 sm:pt-0 text-xs sm:text-sm font-medium" role="tablist">
+            {tabs.map((t) => (
+              <button
+                key={t.key}
+                type="button"
+                role="tab"
+                aria-selected={activeTab === t.key}
+                onClick={() => onTab?.(t.key)}
+                className={`flex items-center gap-2 pb-2 sm:pb-0 sm:pt-1 border-b-2 transition-colors whitespace-nowrap ${
+                  activeTab === t.key ? 'border-blue-600 text-blue-600 font-semibold' : 'border-transparent text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                {t.icon}
+                <span>{t.label}</span>
+              </button>
+            ))}
+          </nav>
+        )}
         <div className="ml-auto flex items-center gap-3 sm:gap-4">
           {actions}
           {onReport && (
@@ -56,25 +76,6 @@ export function AppHeader<K extends string = string>({
           <HeaderMenu onAbout={onAbout} />
         </div>
       </div>
-      {tabs && (
-        <nav className="flex space-x-6 overflow-x-auto pt-1.5 text-xs sm:text-sm font-medium" role="tablist">
-          {tabs.map((t) => (
-            <button
-              key={t.key}
-              type="button"
-              role="tab"
-              aria-selected={activeTab === t.key}
-              onClick={() => onTab?.(t.key)}
-              className={`flex items-center gap-2 pb-2 border-b-2 transition-colors whitespace-nowrap ${
-                activeTab === t.key ? 'border-blue-600 text-blue-600 font-semibold' : 'border-transparent text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              {t.icon}
-              <span>{t.label}</span>
-            </button>
-          ))}
-        </nav>
-      )}
     </div>
   </header>
   );
