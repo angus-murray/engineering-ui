@@ -272,11 +272,18 @@ header .btn:hover { background-color: var(--color-slate-50); }
 @layer components {
   .card-title { @apply text-[13px] font-bold text-slate-800; }
 
+  /* Pop-up tip on hover: a small dark box of plain text (light in the dark theme). The caller positions it
+     (left / top); InfoTip uses it under an (i) icon, and drawings use it for whatever is under the pointer. */
+  .tip { @apply absolute z-40 w-64 px-3 py-2 bg-slate-800 text-white text-xs font-normal rounded-lg leading-relaxed shadow-lg pointer-events-none; }
+
   /* Inputs in a fixed-width column that scrolls on its own (sticky 12 px below the header); the viewer and the
      results use the rest of the width and the page scrolls through the results. Every gap between panels, and
      between the header and the panels, is 12 px. */
   .tab-grid { @apply grid grid-cols-1 lg:grid-cols-[minmax(380px,1fr)_minmax(0,3fr)] gap-3 items-start; }
-  .input-column { @apply space-y-3 lg:sticky lg:top-[calc(var(--header-h)+12px)] lg:max-h-[calc(100vh-var(--header-h)-24px)] lg:overflow-y-auto; }
+  /* From lg: the column scrolls, and a scroll box clips what lies outside it, so it extends 12 px beyond its place on
+     every side (padding with an equal negative margin: the panels do not move) to keep the panels' shadows whole
+     instead of cutting them off at its edges. */
+  .input-column { @apply space-y-3 lg:sticky lg:top-[var(--header-h)] lg:max-h-[calc(100vh-var(--header-h))] lg:overflow-y-auto lg:-m-3 lg:p-3; }
   .results-column { @apply flex flex-col gap-3 min-w-0; }
 
   /* Fill-the-window variant (an app whose results fit on one screen): put .fill-window on the page root, which is

@@ -25,6 +25,7 @@ implements it:
 | About and PDF Report pop-ups | `AboutModal` (with `AppInfo`), `Modal`, `ReportDialog`, `CollapsePanel`, `Formula` |
 | Results | `ResultsHeader`, `StatusChip`, `Banner`, `UtilValue`, `PassFail`, `Cols`, `Dash`, `pct` |
 | Symbols in strings (`f_y`, `β_N^1.5`) | `RichText` |
+| Pop-up tips | `InfoTip` (an (i) icon after a label), `.tip` (theme.css) |
 
 Reference app: Baseplate2D (`angus-murray/baseplate2d`) — screenshots in its `docs/style/`,
 PDF report in its `src/utils/report.ts`.
@@ -126,7 +127,8 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 - The page scrollbar's space is always reserved (`html { scrollbar-gutter: stable }` in `theme.css`), so that results appearing or disappearing do not
   shift the layout sideways. A new app gets this by importing the theme.
 - `.input-column`: sticky 12 px below the header (48 px, with or without tabs), scrolls on its own without a visible
-  scrollbar so the gap beside it stays 12 px.
+  scrollbar so the gap beside it stays 12 px. Its scroll box extends 12 px beyond the panels on every side
+  (`-m-3 p-3`), so the panels' shadows are not cut off at its edges.
 - The main graphic (3D viewer, elevation, chart) sits at the top of the results column. On a 1080p screen in a
   browser (a viewport of about 1920 × 950) the graphic and the top summary panel must both be visible without
   scrolling, with the app's default inputs. Baseplate2D uses
@@ -160,6 +162,9 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 - `.nested` indents options that depend on a checkbox above.
 - **No grey hint or help text in the input panels.** Explanations (ranges, notes, caveats) go in a `title`
   tooltip on the control or the panel title, or in the About page.
+- **Pop-up tips.** A note on a panel or graphic sits behind an (i) icon after its title: `InfoTip`, which shows a
+  `.tip` box (dark, 256 px wide, plain text, below the icon) on hover or keyboard focus. Hovering a part of a drawing
+  (a load, a member) shows the same `.tip` box beside the pointer with what that part is and its values.
 - A **calculated value** shown in an input panel (a lane factor, a total) is a readout row, label left and value
   right (`.readout` / `.readout-value`), not hint text.
 

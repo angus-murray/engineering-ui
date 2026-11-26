@@ -9,3 +9,4 @@ export { AboutModal, AppInfo, formatReleaseDate } from './About.js';
 export { pct, Dash, UtilValue, PassFail, Cols, StatusChip, ResultsHeader, Banner, CollapsePanel, Formula } from './results.js';
 export { darkTint, themed } from './colour.js';
 export { ToolIcon } from './ToolIcon.js';
+export { InfoTip } from './InfoTip.js';
