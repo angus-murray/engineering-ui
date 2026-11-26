@@ -1,6 +1,6 @@
 # Changelog
 
-## Changes since 1.8 (no new version)
+## 1.9
 - `AppHeader` has 12 px above the name and no padding below it, so the gap from the header to the panels (the page's 12 px padding) is the same as the gap above the header; it was 24 px. The header is 48 px (`--header-h`), with or without tabs.
 - `AppHeader` tabs sit to the right of the app name, in the same row, so a header with tabs is one row instead of two. On a phone (below `sm:`) they wrap onto their own row under the name. `--header-h` follows (STYLE.md §4, §5).
 - Look: a tonal light theme and an aurora dark theme (STYLE.md §2, §4). Light: the greys lean slightly blue (`--color-slate-*`), the accent is a deeper blue
