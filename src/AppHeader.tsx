@@ -39,7 +39,8 @@ export function AppHeader<K extends string = string>({
   <header data-tabs={tabs ? '' : undefined} className="bg-slate-100 shrink-0 sticky top-0 z-30">
     <div className="max-w-[1600px] mx-auto px-3">
       {/* Tabs sit to the right of the name; on a phone they wrap onto their own row below it. */}
-      <div className={`flex flex-wrap items-center gap-x-3 ${tabs ? 'pt-2 sm:py-3' : 'py-3'}`}>
+      {/* 12 px above the name and none below it: the page's own 12 px padding is the gap to the panels. */}
+      <div className="flex flex-wrap items-center gap-x-3 pt-3">
         {logoSrc && <img src={logoSrc} alt="" className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" />}
         <h1 className="font-black text-slate-900 text-2xl sm:text-3xl tracking-tight min-w-0">{name}</h1>
         {tabs && (
