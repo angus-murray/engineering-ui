@@ -12,3 +12,4 @@ export { pct, Dash, UtilValue, PassFail, Cols, StatusChip, ResultsHeader, Banner
 export { darkTint, themed } from './colour.js';
 export { ToolIcon } from './ToolIcon.js';
 export { InfoTip } from './InfoTip.js';
+export { FigureTip } from './FigureTip.js';

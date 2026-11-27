@@ -1,6 +1,7 @@
 # Changelog
 
 ## Changes since 1.9 (no new version)
+- `FigureTip` and `.tip-figure`: an (i) icon whose pop-up is a wider box on the panel background holding an SVG diagram and a caption citing the clause or figure it illustrates (STYLE.md §6). Input panels may hold diagrams, not text, through it. Added for TimberCheck; SteelCheck can adopt it later. Version number to be confirmed by the owner (1.10 suggested).
 - `InfoTip` and `.tip`: the pop-up tip (dark box, plain text) shown under an (i) icon after a title, and the same box for hovering parts of a drawing (STYLE.md §6).
 - `.input-column` extends 12 px beyond the panels on every side (padding and an equal negative margin), so its scroll box no longer cuts off the panels' shadows, which showed as a slightly darker rectangle behind the input panels.
 

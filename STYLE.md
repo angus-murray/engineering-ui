@@ -26,6 +26,7 @@ implements it:
 | Results | `ResultsHeader`, `StatusChip`, `Banner`, `UtilValue`, `PassFail`, `Cols`, `Dash`, `pct` |
 | Symbols in strings (`f_y`, `β_N^1.5`) | `RichText` |
 | Pop-up tips | `InfoTip` (an (i) icon after a label), `.tip` (theme.css) |
+| Pop-up figures | `FigureTip` (an (i) icon after a label), `.tip-figure` (theme.css) |
 
 Reference app: Baseplate2D (`angus-murray/baseplate2d`) — screenshots in its `docs/style/`,
 PDF report in its `src/utils/report.ts`.
@@ -165,6 +166,11 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 - **Pop-up tips.** A note on a panel or graphic sits behind an (i) icon after its title: `InfoTip`, which shows a
   `.tip` box (dark, 256 px wide, plain text, below the icon) on hover or keyboard focus. Hovering a part of a drawing
   (a load, a member) shows the same `.tip` box beside the pointer with what that part is and its values.
+- **Figure tips.** A diagram that explains an input (a restraint condition, an end distance) sits behind an (i) icon
+  beside that input: `FigureTip`, which shows a `.tip-figure` box (22 rem wide, on the panel background, with a
+  one-line caption naming the clause or figure the diagram illustrates) on hover or keyboard focus. Input panels may
+  hold diagrams through it, never text: text stays in `InfoTip`, the About page or a `title`. Diagrams are original
+  SVG that follows §9 (slate hex neutrals, `themed` for member colours) and never reproduce a figure from a standard.
 - A **calculated value** shown in an input panel (a lane factor, a total) is a readout row, label left and value
   right (`.readout` / `.readout-value`), not hint text.
 
