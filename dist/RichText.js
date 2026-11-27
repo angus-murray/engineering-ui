@@ -1,5 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import React from 'react';
+import { nb } from './nbsp.js';
 /**
  * Renders plain-text engineering notation with real subscripts / superscripts:
  *   "M_Rk,s" → <i>M</i><sub>Rk,s</sub>,  "β_N^1.5" → <i>β</i><sub>N</sub><sup>1.5</sup>,  "0.5t_bp" → 0.5<i>t</i><sub>bp</sub>.
@@ -13,7 +14,7 @@ export const RichText = ({ text }) => {
     for (const m of text.matchAll(TOKEN)) {
         const i = m.index ?? 0;
         if (i > last)
-            out.push(text.slice(last, i));
+            out.push(nb(text.slice(last, i)));
         if (m[3] !== undefined)
             out.push(_jsx("sup", { children: m[3] }, k++));
         else
@@ -21,6 +22,6 @@ export const RichText = ({ text }) => {
         last = i + m[0].length;
     }
     if (last < text.length)
-        out.push(text.slice(last));
+        out.push(nb(text.slice(last)));
     return _jsx(_Fragment, { children: out });
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { nb } from './nbsp.js';
 
 /**
  * Renders plain-text engineering notation with real subscripts / superscripts:
@@ -13,7 +14,7 @@ export const RichText: React.FC<{ text: string }> = ({ text }) => {
   let k = 0;
   for (const m of text.matchAll(TOKEN)) {
     const i = m.index ?? 0;
-    if (i > last) out.push(text.slice(last, i));
+    if (i > last) out.push(nb(text.slice(last, i)));
     if (m[3] !== undefined) out.push(<sup key={k++}>{m[3]}</sup>);
     else
       out.push(
@@ -24,6 +25,6 @@ export const RichText: React.FC<{ text: string }> = ({ text }) => {
       );
     last = i + m[0].length;
   }
-  if (last < text.length) out.push(text.slice(last));
+  if (last < text.length) out.push(nb(text.slice(last)));
   return <>{out}</>;
 };

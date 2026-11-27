@@ -13,3 +13,4 @@ export { darkTint, themed } from './colour.js';
 export { ToolIcon } from './ToolIcon.js';
 export { InfoTip } from './InfoTip.js';
 export { FigureTip } from './FigureTip.js';
+export { nb } from './nbsp.js';

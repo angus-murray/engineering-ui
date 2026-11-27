@@ -25,6 +25,7 @@ implements it:
 | About and PDF Report pop-ups | `AboutModal` (with `AppInfo`), `Modal`, `ReportDialog`, `CollapsePanel`, `Formula` |
 | Results | `ResultsHeader`, `StatusChip`, `Banner`, `UtilValue`, `PassFail`, `Cols`, `Dash`, `pct` |
 | Symbols in strings (`f_y`, `β_N^1.5`) | `RichText` |
+| Non-breaking spaces and hyphens in expressions, units, references | `nb` (applied by `RichText`) |
 | Pop-up tips | `InfoTip` (an (i) icon after a label), `.tip` (theme.css) |
 | Pop-up figures | `FigureTip` (an (i) icon after a label), `.tip-figure` (theme.css) |
 
@@ -290,6 +291,11 @@ Every drawing must read well in both themes. The light theme is the reference; d
 - No grey explanatory text in the input column; no marketing tone.
 - Symbols: italic with subscripts in the UI; `x_y` in strings passed to `RichText` and the report renderer.
 - Not-applicable: en-dash in inputs, em-dash in tables.
+- **Non-breaking spaces and hyphens** (mathematical expressions, units and standard references only; ordinary prose keeps normal spaces):
+  a non-breaking space (U+00A0, the character itself, never an escape or the text `U+00A0`) between a number and its unit
+  (`42 MPa`), on both sides of an operator in an expression (`f′b = 42`, `2 × 3`), and inside a standard or clause reference
+  (`AS 1720.1`, `Table 2.1`, `Cl. 3.2`, `Category 2`). Percent and degree take no space (`15%`, `45°`). A number-unit modifier before a noun
+  uses a non-breaking hyphen (U+2011): `150‑mm member`. `nb(text)` does this for a string, and `RichText` applies it.
 
 ## 13. Analytics (fixed)
 
