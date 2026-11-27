@@ -165,7 +165,7 @@ dark theme** in §9. All Tailwind colour families have dark values (tints over t
 - **No grey hint or help text in the input panels.** Explanations (ranges, notes, caveats) go in a `title`
   tooltip on the control or the panel title, or in the About page.
 - **Pop-up tips.** A note on a panel or graphic sits behind an (i) icon after its title: `InfoTip`, which shows a
-  `.tip` box (dark, 256 px wide, plain text, below the icon) on hover or keyboard focus. Hovering a part of a drawing
+  `.tip` box (dark, 256 px wide, plain text, below the icon) on hover or keyboard focus. Tips and figure tips are drawn above everything else (portal, `z-index: 1000`); never position them inside a panel. Hovering a part of a drawing
   (a load, a member) shows the same `.tip` box beside the pointer with what that part is and its values.
 - **Figure tips.** A diagram that explains an input (a restraint condition, an end distance) sits behind an (i) icon
   beside that input: `FigureTip`, which shows a `.tip-figure` box (22 rem wide, on the panel background, with a

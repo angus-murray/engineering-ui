@@ -1,6 +1,7 @@
 # Changelog
 
 ## Changes since 1.9 (no new version)
+- `InfoTip` and `FigureTip` draw their pop-up in a portal on `<body>` with fixed coordinates and `z-index: 1000` (`TipBox`), so panels, scroll boxes and stacking contexts can no longer hide or clip it. It opens below the icon, flips above when there is no room, and stays inside the window. `react-dom` is now a peer dependency.
 - `nb(text)` and STYLE.md §12: non-breaking spaces (number and unit, around operators, inside standard references) and non-breaking hyphens (number-unit modifiers) in mathematical expressions, units and references only. `RichText` applies it to its text.
 - `FigureTip` and `.tip-figure`: an (i) icon whose pop-up is a wider box on the panel background holding an SVG diagram and a caption citing the clause or figure it illustrates (STYLE.md §6). Input panels may hold diagrams, not text, through it. Added for TimberCheck; SteelCheck can adopt it later. Version number to be confirmed by the owner (1.10 suggested).
 - `InfoTip` and `.tip`: the pop-up tip (dark box, plain text) shown under an (i) icon after a title, and the same box for hovering parts of a drawing (STYLE.md §6).

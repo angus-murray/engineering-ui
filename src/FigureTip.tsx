@@ -1,5 +1,6 @@
 import React from 'react';
 import { Info } from 'lucide-react';
+import { TipBox, useTip } from './TipBox.js';
 
 /**
  * An (i) icon, optionally after a label, that shows a figure (an SVG diagram) in a pop-up on the panel background
@@ -11,14 +12,15 @@ import { Info } from 'lucide-react';
  *   </FigureTip>
  */
 export function FigureTip({ label, children, caption, className = '' }: { label?: React.ReactNode; children: React.ReactNode; caption?: React.ReactNode; className?: string }) {
+  const { ref, open, handlers } = useTip();
   return (
-    <span tabIndex={0} className={`relative inline-flex items-center gap-2 group cursor-help outline-none ${className}`}>
+    <span ref={ref} tabIndex={0} className={`relative inline-flex items-center gap-2 cursor-help outline-none ${className}`} {...handlers}>
       {label}
       <Info className="w-4 h-4 text-slate-400" aria-hidden="true" />
-      <span role="tooltip" className="tip-figure left-0 top-full mt-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100">
+      <TipBox anchor={ref} open={open} className="tip-figure">
         <span className="block">{children}</span>
         {caption && <span className="block mt-1.5 text-[11px] text-slate-500">{caption}</span>}
-      </span>
+      </TipBox>
     </span>
   );
 }
